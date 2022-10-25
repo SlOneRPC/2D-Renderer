@@ -1,5 +1,6 @@
 #pragma once
 #include "QuadDemo.h"
+#include "../Texture.h"
 
 class ChessBoardDemo : QuadDemo
 {
@@ -16,4 +17,6 @@ private:
 	VertexBuffer* vertex;
 	IndexBuffer* index;
 	Shader* shader;
+	Shader* textureShader;
+	Texture* texture;
 };
