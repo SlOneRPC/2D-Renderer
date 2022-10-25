@@ -8,6 +8,7 @@
 
 #include "Demos/QuadDemo.h"
 #include "Demos/ChessBoardDemo.h"
+#include "Demos/TextureDemo.h"
 
 int main(void)
 {
