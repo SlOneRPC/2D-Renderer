@@ -8,6 +8,6 @@ public:
 	virtual void OnImguiRender() {};
 	virtual void Shutdown() {};
 	inline std::string GetDemoName() { return name; };
-private:
+protected:
 	std::string name;
 };

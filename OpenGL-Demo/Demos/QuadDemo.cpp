@@ -3,6 +3,7 @@
 
 QuadDemo::QuadDemo()
 {
+	name = "Quad Demo";
 }
 
 QuadDemo::~QuadDemo()

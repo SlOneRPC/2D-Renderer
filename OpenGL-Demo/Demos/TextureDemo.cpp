@@ -3,6 +3,7 @@
 
 TextureDemo::TextureDemo()
 {
+	name = "Texture Demo";
 }
 
 TextureDemo::~TextureDemo()

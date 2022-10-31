@@ -2,7 +2,17 @@
 #include "QuadDemo.h"
 #include "../Texture.h"
 
-class ChessBoardDemo : QuadDemo
+struct Vector2 {
+	int x, y;
+
+	bool operator==(const Vector2& other) const
+	{
+		return (x == other.x
+			&& y == other.y);
+	}
+};
+
+class ChessBoardDemo : Demo
 {
 public:
 	ChessBoardDemo();
@@ -14,6 +24,8 @@ public:
 	void Shutdown() override;
 
 private:
+	void MovePiece(const std::string& name, Vector2& pos);
+
 	VertexBuffer* vertex;
 	IndexBuffer* index;
 	Shader* shader;
