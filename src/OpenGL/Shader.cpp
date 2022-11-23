@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iostream>
 
+#include <glm/gtc/type_ptr.hpp>
+
 Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath)
 	: programId(glCreateProgram())
 {
@@ -39,6 +41,12 @@ void Shader::SetUniformVec4(const char* name, float r, float g, float b, float a
 {
 	int location = glGetUniformLocation(programId, name);
 	glUniform4f(location, r, g, b, a);
+}
+
+void Shader::SetUniformVec4(const char* name, const glm::mat4& pos)
+{
+	int location = glGetUniformLocation(programId, name);
+	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(pos));
 }
 
 bool Shader::SetupShader(const std::string& path, unsigned int type)

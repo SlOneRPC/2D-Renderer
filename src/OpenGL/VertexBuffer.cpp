@@ -8,7 +8,7 @@ VertexBuffer::VertexBuffer(int size)
 	glBufferData(GL_ARRAY_BUFFER, size, nullptr, GL_DYNAMIC_DRAW);
 }
 
-VertexBuffer::VertexBuffer(float* data, int size)
+VertexBuffer::VertexBuffer(void* data, int size)
 {
 	glGenBuffers(1, &bufferId);
 	Bind();
