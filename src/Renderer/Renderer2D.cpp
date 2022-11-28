@@ -33,7 +33,7 @@ Renderer2D::Renderer2D()
         // Create shaders
         flatColourShader = std::make_unique<Shader>(APP_RESOURCE("shaders/vertex.shader"), APP_RESOURCE("shaders/fragment.shader"));
         textureShader = std::make_unique<Shader>(APP_RESOURCE("shaders/vertex.shader"), APP_RESOURCE("shaders/textureFragment.shader"));
-    
+
         unsigned int quadIndices[] = {
                        0, 1, 2,
                        2, 3, 0
@@ -85,7 +85,7 @@ Renderer2D::Renderer2D()
     }
 }
 
-void Renderer2D::Begin()
+void Renderer2D::Begin(OrthographicCamera& camera)
 {
     /* Poll for and process events */
     glfwPollEvents();
@@ -95,6 +95,8 @@ void Renderer2D::Begin()
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
+
+    viewProjection = camera.GetViewProjection();
 }
 
 void Renderer2D::End()
@@ -123,7 +125,8 @@ void Renderer2D::DrawQuad(const glm::vec2& transform, const glm::vec2& dimension
     glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(dimensions.x, dimensions.y, 1.f));
     glm::mat4 transformed = glm::translate(glm::mat4(1.0f), { transform.x, transform.y, 0.f }) * scale;
 
-    shader->SetUniformVec4("uTransform", transformed);
+    shader->SetUniformMat4("uTransform", transformed);
+    shader->SetUniformMat4("uViewProjection", viewProjection);
 
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 }
@@ -141,6 +144,12 @@ void Renderer2D::DrawTriangle(const glm::vec2& transform, const glm::vec2& dimen
 
     flatColourShader->Bind();
     flatColourShader->SetUniformVec4("uColour", colour.r, colour.g, colour.b, colour.a);
+
+    glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(dimensions.x, dimensions.y, 1.f));
+    glm::mat4 transformed = glm::translate(glm::mat4(1.0f), { transform.x, transform.y, 0.f }) * scale;
+
+    flatColourShader->SetUniformMat4("uTransform", transformed);
+    flatColourShader->SetUniformMat4("uViewProjection", viewProjection);
 
     glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 }

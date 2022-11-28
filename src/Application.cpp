@@ -9,7 +9,10 @@
 
 #include "OpenGL/Window.h"
 #include "OpenGL/Texture.h"
+#include "OpenGL/OrthographicCamera.h"
 #include "Renderer/Renderer2D.h"
+
+#include "glm/glm.hpp"
 
 int main(void)
 {
@@ -32,16 +35,41 @@ int main(void)
 
     std::unique_ptr<Texture> checkerboardTexture = std::make_unique<Texture>(APP_RESOURCE("images/checkerboard.jpg"));
 
+
+    float camZoom = 4.0f;
+    OrthographicCamera camera(-camZoom, camZoom, -camZoom, camZoom);
+    camera.SetPosition({ 0.5f, 0.5f, 0.0f });
+
+    glm::vec2 quadTransform(-0.5f, -0.5f);
+
     /* Loop until the user closes the window */
     while (window->IsOpen())
     {
-        renderer2D->Begin();
+        renderer2D->Begin(camera);
         {
-            renderer2D->DrawTexturedQuad({ -0.5f, -0.5f }, { 1.0f, 1.0f }, checkerboardTexture.get());
+            renderer2D->DrawTexturedQuad(quadTransform, { 2.0f, 2.0f }, checkerboardTexture.get());
 
-            //renderer2D->DrawQuad({ -0.5f, -0.5f }, { 1.0f, 1.0f }, { 1.0, 0.f, 0.f, 1.0f });
+            renderer2D->DrawQuad({ -0.5f, -0.5f }, { 1.0f, 1.0f }, { 1.0, 0.f, 0.f, 1.0f });
 
-            renderer2D->DrawTriangle({ -0.2f, -0.4f }, { 0.5f, 0.5f }, { 0.0, 1.f, 0.f, 1.0f });
+            //renderer2D->DrawTriangle({ -0.2f, -0.4f }, { 2.5f, 2.5f }, { 0.0, 1.f, 0.f, 1.0f });
+            
+            {
+                ImGui::Text("Textured Quad Transform");
+                ImGui::DragFloat("Quad x", &quadTransform.x);
+                ImGui::DragFloat("Quad y", &quadTransform.y);
+
+                ImGui::Text("Camera Position");
+                glm::vec3 camPosition(camera.GetPosition());
+                if (ImGui::DragFloat("Cam x", &camPosition.x) ||
+                    ImGui::DragFloat("Cam y", &camPosition.y)) {
+                    camera.SetPosition(camPosition);
+                }
+
+                ImGui::Text("Camera Zoom");
+                if (ImGui::DragFloat("Cam Zoom", &camZoom)) {
+                    camera.SetProjection(-camZoom, camZoom, -camZoom, camZoom);
+                }
+            }
         }
         renderer2D->End();
 
