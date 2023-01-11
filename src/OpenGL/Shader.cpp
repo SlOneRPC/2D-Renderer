@@ -1,7 +1,7 @@
 #include "Shader.h"
 #include "CommonRender.h"
 #include <fstream>
-#include <iostream>
+#include "Core/Logging.h"
 
 #include <glm/gtc/type_ptr.hpp>
 
@@ -67,12 +67,14 @@ bool Shader::SetupShader(const std::string& path, unsigned int type)
 		}
 		else
 		{
+			LOG_ERROR("Shader file is invalid -> " + path);
 			_ASSERT(false);
 			return false;
 		}
 	}
 	else	
 	{
+		LOG_ERROR("Cannot find shader -> " + path);
 		_ASSERT(false);
 		return false;
 	}
@@ -91,12 +93,13 @@ bool Shader::SetupShader(const std::string& path, unsigned int type)
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &length);
 		char* message = (char*)alloca(length * sizeof(char));
 		glGetShaderInfoLog(shader, length, &length, message);
-		std::cout << "Failed to compile shader! " << std::endl;
-		std::cout << message << std::endl;
+		LOG_ERROR("Cannot compile shader -> " + std::string(message));
 		glDeleteShader(shader);
 		_ASSERT(false);
 		return false;
 	}
+
+	LOG_INFO("Sucessfully compiled shader -> " + path);
 
 	glAttachShader(programId, shader);
 	return true;

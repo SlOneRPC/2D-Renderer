@@ -11,8 +11,11 @@ public:
 	const glm::vec3& GetPosition() { return postion; }
 	const glm::mat4& GetViewProjection() { return viewProjectionMatrix; }
 	const glm::mat4& GetProjectionMatrix() { return projectionMatrix; }
+	const float GetZoom() { return zoom; }
 private:
 	void RecalculateMatrix();
+
+	float zoom;
 
 	glm::mat4 projectionMatrix;
 	glm::mat4 viewMatrix;
