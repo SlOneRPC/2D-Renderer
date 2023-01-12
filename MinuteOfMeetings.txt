@@ -4,7 +4,6 @@ Meeting 1 (18/10/22)
 - Discussed using OpenGL for rendering
 - Aim for next meeting is to research OpenGL and graphics programming
 
-
 Meeting 2 (1/11/22)
 - Looked at the inital chess demo I created in OpenGL and how I had abstracted the OpenGL core concept such as vertex and index buffers into classes
 - Discussed scene graphs and project architecture
@@ -14,3 +13,15 @@ Meeting 3 (14/11/22)
 - Looked over and discussed project setup and inital 2D renderer design
 - Discussed types of scene graphs, decided that a quad tree would be the best approach for what I'm aiming towards
 - Aim for next meeting is to look into quad trees, unit testing and orthographic cameras
+
+Meeting 4 (29/11/22)
+- Looked over my progress on the orthographic camera and entity transforms
+- Discussed approach to testing in a bit more detail, decided that both unit testing and screenshot testing would be required
+- Aim for next meeting is to look into the types of testing and create a plan for how I'm going to implement the QuadTree so we can discuss it before the Christmas break
+
+Meeting 5 (13/12/22)
+- Discussed the January demo and what I would be creating for it
+- Showed off my initial mockup of the the quadtree in a header file
+- Decided that a demo showing off a working quadtree with the different nodes being rendered would work best
+- Moving entitys would show that entity updating is working correctly
+- Aim for the next time we meet will be to create a demo for the January demo
