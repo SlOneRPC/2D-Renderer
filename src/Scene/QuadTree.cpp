@@ -147,7 +147,7 @@ void Node::RemoveEntity(Entity* entity, BoundingBox& area)
 {
 	if (leafNode) 
 	{
-		std::remove(entities.begin(), entities.end(), entity);
+		entities.erase(std::remove(entities.begin(), entities.end(), entity), entities.end());
 	}
 	else 
 	{
@@ -183,37 +183,42 @@ void Node::SplitNode()
 	Add_Child(CreateChildNode(centrePoint + glm::vec2(offset, -offset), halfSize));
 	Add_Child(CreateChildNode(centrePoint + glm::vec2(-offset, -offset), halfSize));
 
+	// Tidy up current node
+	if (entities.size() > 0) 
+	{
+		for (int childIdx = 0; childIdx < 4; childIdx++)
+		{
+			for (Entity* ent : entities) 
+			{
+				children[childIdx].AssignEntity(ent, trackers->previousBox[ent->id]);
+			}
+		}
+		entities.clear();
+	}
+
 	leafNode = false;
 }
 
 void Node::CollapseNode()
 {
-	LOG_INFO("Collapsing node");
-
-	if (leafNode) 
+	for (int childIdx = 0; childIdx < 4; childIdx++)
 	{
-		for (Entity* ent : entities) 
+		Node* childNode = &children[childIdx];
+
+		if (!childNode->leafNode) 
 		{
-			if (!parent->ContainsEntity(ent))
-				parent->entities.push_back(ent);
+			childNode->CollapseNode();
 		}
 
-		std::remove(parent->children.begin(), parent->children.end(), *this);
-	}
-	else 
-	{
-		for (int childIdx = 0; childIdx < 4; childIdx++)
+		for (int entityIdx = 0; entityIdx < childNode->entities.size(); entityIdx++)
 		{
-			for (int entityIdx = 0; entityIdx < children[childIdx].entities.size(); entityIdx++)
-			{
-				Entity* entity = children[childIdx].entities[entityIdx];
-				entities.push_back(entity);
-			}
+			Entity* entity = childNode->entities[entityIdx];
+			entities.push_back(entity);
 		}
-
-		children.clear();
-		leafNode = true;
 	}
+
+	children.clear();
+	leafNode = true;
 }
 
 int Node::GetEntityCount()
@@ -300,31 +305,28 @@ bool Node::UpdateEntityPosition(Entity* entity, BoundingBox& newArea, BoundingBo
 
 		for (int idx = 0; idx < children.size(); idx++)
 		{
-			Node child = children[idx];
+			Node* child = &children[idx];
 
-			if (child.boundingBox.contains(oldArea)) 
+			if (child->boundingBox.contains(oldArea)) 
 			{
 				bool found = children[idx].UpdateEntityPosition(entity, newArea, oldArea);
 				if (found) entityFound = true;
 			}
-			else
+			else if (child->boundingBox.contains(newArea))
 			{
-				if (child.boundingBox.contains(newArea)) 
-				{
-					child.AddEntity(entity, newArea);
-					entityAdded = true;
-				}
+				child->AssignEntity(entity, newArea);
+				entityAdded = true;
 			}
 		}
 
-		if (!entityFound && !entityAdded) 
+		if (!entityFound && !entityAdded)
 		{
-			if (parent != nullptr) 
+			if (parent)
 			{
-				int storedEntities = GetEntityCount();
-
-				if (storedEntities < MinEntitiesPerLinkNode)
+				if (GetEntityCount() <= MaxEntitiesPerNode)
+				{
 					CollapseNode();
+				}
 			}
 		}
 

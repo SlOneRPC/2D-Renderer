@@ -91,7 +91,6 @@ public:
 	void Draw();
 	void Recreate();
 
-
 	// Determine Intersection
 	// Determine Contacts
 private:
