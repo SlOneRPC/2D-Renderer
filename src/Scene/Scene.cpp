@@ -1,6 +1,6 @@
 #include "Scene.h"
 #include "imgui.h"
-
+#include "SceneSerializer.h"
 
 Scene::Scene(float size)
 	: size(size), entList(EntityList(glm::vec2(0,0), size)), camera(OrthographicCamera(-4, 4, -4, 4))
@@ -81,10 +81,9 @@ int Scene::CreateQuadEntity(const glm::vec2& pos, const Colour& colour, const gl
 int Scene::CreateTexturedEntity(const glm::vec2& pos, const std::string& path)
 {
 	std::shared_ptr<Entity> ent = std::make_shared<Entity>(baseId++);
-	std::shared_ptr<Texture> texture = std::make_shared<Texture>(BASE_APP_PATH + path);
 
 	ent->AddComponent<TransformComponent>(pos);
-	ent->AddComponent<SpriteComponent>(texture);
+	ent->AddComponent<SpriteComponent>(std::string(BASE_APP_PATH + path));
 
 	return entList.AddEntity(ent);
 }
@@ -92,4 +91,15 @@ int Scene::CreateTexturedEntity(const glm::vec2& pos, const std::string& path)
 int Scene::AddCustomEntity(std::shared_ptr<Entity>& ent)
 {
 	return entList.AddEntity(ent);
+}
+
+void Scene::Save(std::string path)
+{
+	SceneSerializer serialiser(path);
+	serialiser.SerialiseScene(this);
+}
+
+void Scene::Load(std::string& path)
+{
+
 }

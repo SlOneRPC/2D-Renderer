@@ -52,6 +52,7 @@
     <ClInclude Include="Demos\SandboxScene.h" />
     <ClInclude Include="Demos\MovingEntity.h" />
     <ClInclude Include="Core\TimeStep.h" />
+    <ClInclude Include="Scene\SceneSerializer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\vendor\imgui\backends\imgui_impl_glfw.cpp">
@@ -104,5 +105,7 @@
     <ClCompile Include="Demos\DemoScene.cpp" />
     <ClCompile Include="Demos\SandboxScene.cpp" />
     <ClCompile Include="Demos\MovingEntity.cpp" />
+    <ClCompile Include="Scene\SceneSerializer.cpp" />
+    <ClCompile Include="Core\TimeStep.cpp" />
   </ItemGroup>
 </Project>
