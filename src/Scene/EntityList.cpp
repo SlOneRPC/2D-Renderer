@@ -70,9 +70,9 @@ void EntityList::DrawQuadTree()
     tree.Draw();
 }
 
-void EntityList::RebuildTree()
+void EntityList::RebuildTree(float size)
 {
-    tree.Recreate();
+    tree.Recreate(size);
 
     for (std::shared_ptr<Entity>& ent : entities) 
     {

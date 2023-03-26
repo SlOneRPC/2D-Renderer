@@ -89,7 +89,7 @@ public:
 	std::vector<Entity*> GetEntities(const glm::vec2& min, const glm::vec2& max);
 
 	void Draw();
-	void Recreate();
+	void Recreate(float newSize);
 
 	// Determine Intersection
 	// Determine Contacts

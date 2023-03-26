@@ -75,11 +75,11 @@ void QuadTree::Draw()
 	rootNode->Draw(col, id);
 }
 
-void QuadTree::Recreate()
+void QuadTree::Recreate(float newSize)
 {
 	delete rootNode;
 	trackers.previousBox.clear();
-	rootNode = new Node(&trackers, nullptr, origin, size);
+	rootNode = new Node(&trackers, nullptr, origin, newSize > 0.f ? newSize : size);
 }
 
 QuadTree::QuadTree(glm::vec2 origin, float size)
