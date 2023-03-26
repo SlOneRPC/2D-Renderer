@@ -16,10 +16,32 @@
 
 #include "Demos/DemoScene.h"
 #include "Demos/SandboxScene.h"
+#include "Demos/MovingEntity.h"
 
 #include "glm/glm.hpp"
 
-int main(void)
+std::unique_ptr<Window> window;
+
+void ScreenshotDemoScene(int argc, char* argv[])
+{
+    if (argc < 2)
+        return;
+
+    std::unique_ptr<Scene> testScene = std::make_unique<Scene>(argv[1]);
+
+    TimeStep timestep(glfwGetTime());
+
+    while (window->IsOpen())
+    {
+        timestep.Update(glfwGetTime());
+        testScene->OnUpdate(timestep);
+        window->SwapBuffers();
+    }
+
+    CLOSE_CONSOLE();
+}
+
+int main(int argc, char* argv[])
 {
     ALLOC_CONSOLE();
 
@@ -33,7 +55,7 @@ int main(void)
     ImGui::CreateContext();
     ImGui::StyleColorsDark();
 
-    std::unique_ptr<Window> window = std::make_unique<Window>(1280, 1080, "Renderer2D", true);
+    window = std::make_unique<Window>(1280, 1080, "Renderer2D", true);
     
     ImGui_ImplOpenGL3_Init("#version 130");
 
@@ -44,22 +66,31 @@ int main(void)
 
     LOG_INFO("Glew Intialised");
 
-    //std::unique_ptr<BasicDemoScene> demoScene = std::make_unique<BasicDemoScene>(8);
-    std::unique_ptr<SandboxScene> sandboxScene = std::make_unique<SandboxScene>(8);
+#ifdef TESTING
+    ScreenshotDemoScene(argc, argv);
+    return 0;
+#endif
 
-    //demoScene->Init();
-    sandboxScene->Init();
+    RegisterEntity<Entity>();
+    RegisterEntity<MovingEntity>();
+
+    std::unique_ptr<BasicDemoScene> demoScene = std::make_unique<BasicDemoScene>(8);
+    //std::unique_ptr<SandboxScene> sandboxScene = std::make_unique<SandboxScene>(8);
+    //std::unique_ptr<Scene> testScene = std::make_unique<Scene>("test.scene");
+
+    demoScene->Init();
+    //sandboxScene->Init();
 
     TimeStep timestep(glfwGetTime());
 
     while (window->IsOpen())
     {
         timestep.Update(glfwGetTime());
-        sandboxScene->OnUpdate(timestep);
+        demoScene->OnUpdate(timestep);
         window->SwapBuffers();
     }
 
-    sandboxScene->Save("test.scene");
+    //demoScene->Save("test.scene");
 
     CLOSE_CONSOLE();
 
