@@ -8,7 +8,6 @@
 
 #include <memory>
 
-#define BASE_APP_PATH "../resources/"
 #define APP_RESOURCE(path) BASE_APP_PATH path
 
 class Renderer2D {
@@ -18,13 +17,12 @@ public:
 	void Begin(OrthographicCamera& camera);
 	void End();
 
-	void DrawQuad(const glm::vec2& position, const glm::vec2& dimensions, const Colour& colour);
+	void DrawQuad(const glm::vec2& position, const glm::vec2& dimensions, const Colour& colour, float rotation = 0.f);
 	void DrawOutlineQuad(const glm::vec2& position, const glm::vec2& dimensions, const Colour& colour, const float& outlineThickness = 0.1f);
-	void DrawTexturedQuad(const glm::vec2& position, const glm::vec2& dimensions, Texture* texture);
+	void DrawTexturedQuad(const glm::vec2& position, const glm::vec2& dimensions, Texture* texture, float rotation = 0.f);
 	void DrawTriangle(const glm::vec2& position, const glm::vec2& dimensions, const Colour& colour);
-	void DrawRotatedQuad(const glm::vec2& position, const glm::vec2& dimensions, const float& rotation);
 private:
-	void DrawQuad(const glm::vec2& position, const glm::vec2& dimensions, std::unique_ptr<Shader>& shader);
+	void DrawQuad(const glm::vec2& position, const glm::vec2& dimensions, std::unique_ptr<Shader>& shader, float rotation = 0.f);
 
 	glm::mat4 viewProjection;
 };

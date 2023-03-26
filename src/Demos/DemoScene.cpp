@@ -20,7 +20,7 @@ void BasicDemoScene::Init()
 			float posx = (offset * x) - Count / 2;
 			float posy = (offset * y) - Count / 2;
 
-			CreateQuadEntity(glm::vec2(posx, posy), { 1.0, 0.0, 0.0, 1.0 });
+			CreateQuadEntity(glm::vec2(posx, posy), { 1.0, 0.0, 0.0, 1.0 }, glm::vec2{1.0f, 1.0f}, 45.f);
 		}
 	}
 

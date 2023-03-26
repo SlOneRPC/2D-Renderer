@@ -9,6 +9,13 @@ Scene::Scene(float size)
 	renderer2D = std::make_unique<Renderer2D>();
 }
 
+Scene::Scene(const std::string& path)
+	: entList(EntityList(glm::vec2(0, 0), 4.f)), camera(OrthographicCamera(-4, 4, -4, 4))
+{
+	Load(path);
+	renderer2D = std::make_unique<Renderer2D>();
+}
+
 void Scene::OnUpdate(TimeStep ts)
 {
 	std::vector<Entity*> ents = entList.GetVisibleEntities(camera);
@@ -28,17 +35,17 @@ void Scene::OnUpdate(TimeStep ts)
     {
 		for (Entity* ent : ents)
 		{
+			TransformComponent* transformComponent = ent->GetComponent<TransformComponent>();
+
 			if (ent->HasComponent<SpriteComponent>()) 
 			{
-				TransformComponent* transformComponent = ent->GetComponent<TransformComponent>();
 				SpriteComponent* spriteComponent = ent->GetComponent<SpriteComponent>();
-				renderer2D->DrawTexturedQuad(transformComponent->translation, transformComponent->scale, spriteComponent->texture.get());
+				renderer2D->DrawTexturedQuad(transformComponent->translation, transformComponent->scale, spriteComponent->texture.get(), transformComponent->rotation);
 			}
 			else
 			{
-				TransformComponent* transformComponent = ent->GetComponent<TransformComponent>();
 				QuadComponent* quadComponent = ent->GetComponent<QuadComponent>();
-				renderer2D->DrawQuad(transformComponent->translation, transformComponent->scale, quadComponent->colour);
+				renderer2D->DrawQuad(transformComponent->translation, transformComponent->scale, quadComponent->colour, transformComponent->rotation);
 			}
 		}
 
@@ -68,21 +75,21 @@ void Scene::OnUpdate(TimeStep ts)
 // TEMP
 int baseId = 0;
 
-int Scene::CreateQuadEntity(const glm::vec2& pos, const Colour& colour, const glm::vec2& scale)
+int Scene::CreateQuadEntity(const glm::vec2& pos, const Colour& colour, const glm::vec2& scale, float rotation)
 {
 	std::shared_ptr<Entity> ent = std::make_shared<Entity>(baseId++);
 
-	ent->AddComponent<TransformComponent>(pos, 0, scale);
+	ent->AddComponent<TransformComponent>(pos, rotation, scale);
 	ent->AddComponent<QuadComponent>(colour);
 
 	return entList.AddEntity(ent);
 }
 
-int Scene::CreateTexturedEntity(const glm::vec2& pos, const std::string& path)
+int Scene::CreateTexturedEntity(const glm::vec2& pos, const std::string& path, float rotation)
 {
 	std::shared_ptr<Entity> ent = std::make_shared<Entity>(baseId++);
 
-	ent->AddComponent<TransformComponent>(pos);
+	ent->AddComponent<TransformComponent>(pos, rotation, glm::vec2{ 1.0f, 1.0f });
 	ent->AddComponent<SpriteComponent>(std::string(BASE_APP_PATH + path));
 
 	return entList.AddEntity(ent);
@@ -99,7 +106,15 @@ void Scene::Save(std::string path)
 	serialiser.SerialiseScene(this);
 }
 
-void Scene::Load(std::string& path)
+void Scene::Load(std::string path)
 {
+	SceneSerializer serialiser(path);
+	serialiser.DeserialiseScene(this);
+}
 
+void Scene::Init(float size)
+{
+	this->size = size;
+	entList.RebuildTree(size);
+	Init();
 }
