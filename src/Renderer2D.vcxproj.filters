@@ -48,11 +48,20 @@
     <ClInclude Include="Scene\QuadTree.h" />
     <ClInclude Include="Core\Logging.h" />
     <ClInclude Include="Core\Colour.h" />
-    <ClInclude Include="Demos\DemoScene.h" />
-    <ClInclude Include="Demos\SandboxScene.h" />
-    <ClInclude Include="Demos\MovingEntity.h" />
+    <ClInclude Include="Demos\Tests\DemoScene.h" />
+    <ClInclude Include="Demos\Tests\SandboxScene.h" />
+    <ClInclude Include="Demos\Tests\MovingEntity.h" />
     <ClInclude Include="Core\TimeStep.h" />
     <ClInclude Include="Scene\SceneSerializer.h" />
+    <ClInclude Include="OpenGL\Input.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="Demos\Space Raiders\Entities\Alien.h" />
+    <ClInclude Include="Demos\Space Raiders\Entities\Bullet.h" />
+    <ClInclude Include="Demos\Space Raiders\Entities\Rocket.h" />
+    <ClInclude Include="Demos\Space Raiders\Entities\Wall.h" />
+    <ClInclude Include="Demos\Space Raiders\SpaceRaidersScene.h" />
+    <ClInclude Include="Core\Random.h" />
+    <ClInclude Include="Demos\Space Raiders\Entities\EndGame.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\vendor\imgui\backends\imgui_impl_glfw.cpp">
@@ -102,9 +111,16 @@
     <ClCompile Include="Core\Logging.cpp" />
     <ClCompile Include="Scene\QuadTree.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
-    <ClCompile Include="Demos\DemoScene.cpp" />
-    <ClCompile Include="Demos\SandboxScene.cpp" />
-    <ClCompile Include="Demos\MovingEntity.cpp" />
+    <ClCompile Include="Demos\Tests\DemoScene.cpp" />
+    <ClCompile Include="Demos\Tests\SandboxScene.cpp" />
+    <ClCompile Include="Demos\Tests\MovingEntity.cpp" />
     <ClCompile Include="Scene\SceneSerializer.cpp" />
+    <ClCompile Include="OpenGL\Input.cpp" />
+    <ClCompile Include="Demos\Space Raiders\Entities\Rocket.cpp" />
+    <ClCompile Include="Demos\Space Raiders\Entities\Alien.cpp" />
+    <ClCompile Include="Demos\Space Raiders\Entities\Bullet.cpp" />
+    <ClCompile Include="Demos\Space Raiders\Entities\Wall.cpp" />
+    <ClCompile Include="Demos\Space Raiders\SpaceRaidersScene.cpp" />
+    <ClCompile Include="Demos\Space Raiders\Entities\EndGame.cpp" />
   </ItemGroup>
 </Project>

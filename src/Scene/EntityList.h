@@ -21,7 +21,8 @@ public:
 
 	Entity* GetEntity(int entityId);
 	std::vector<Entity*> GetVisibleEntities(OrthographicCamera& camera);
-	std::vector<std::shared_ptr<Entity>>& GetEntities();
+	std::vector<std::shared_ptr<Entity>> GetEntities();
+	std::vector<Entity*> GetCollidingEntities(Entity* other);
 
 	void DrawQuadTree();
 	void RebuildTree(float size = 0.f);

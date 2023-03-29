@@ -32,8 +32,8 @@ void EntityList::DeleteEntity(int entityId)
 void EntityList::DeleteEntity(Entity* entity)
 {
     assert(entity);
-    entities.erase(std::remove_if(entities.begin(), entities.end(), [&](std::shared_ptr<Entity> entity1) { return entity1->id == entity->id;  }), entities.end());
     tree.RemoveEntity(entity);
+    entities.erase(std::remove_if(entities.begin(), entities.end(), [&](std::shared_ptr<Entity> entity1) { return entity1->id == entity->id;  }), entities.end());
 }
 
 void EntityList::UpdateEntity(Entity* entity)
@@ -56,9 +56,14 @@ std::vector<Entity*> EntityList::GetVisibleEntities(OrthographicCamera& camera)
     return tree.GetEntities(camera.GetZoom() + camera.GetPosition(), fabsf(camera.GetZoom()) - camera.GetPosition());
 }
 
-std::vector<std::shared_ptr<Entity>>& EntityList::GetEntities()
+std::vector<std::shared_ptr<Entity>> EntityList::GetEntities()
 {
     return entities;
+}
+
+std::vector<Entity*> EntityList::GetCollidingEntities(Entity* other)
+{
+    return tree.GetCollidingEntities(other);
 }
 
 void EntityList::DrawQuadTree()

@@ -150,6 +150,11 @@ public:
 		return false;
 	}
 
+	template <typename T>
+	bool IsEntityType() {
+		return dynamic_cast<T*>(this);
+	}
+
 	template <typename T, typename... Args>
 	void AddComponent(Args&&... args)
 	{

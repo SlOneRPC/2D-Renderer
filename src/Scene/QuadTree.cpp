@@ -59,6 +59,25 @@ std::vector<Entity*> QuadTree::GetEntities(const glm::vec2& min, const glm::vec2
 	return ents;
 }
 
+std::vector<Entity*> QuadTree::GetCollidingEntities(Entity* other)
+{
+	std::vector<Entity*> ents;
+	BoundingBox box = trackers.previousBox[other->id];
+	rootNode->SelectAll(box, ents);
+
+	std::vector<Entity*> finalEnts;
+
+	for (Entity* ent : ents) 
+	{
+		if (box.contains(trackers.previousBox[ent->id])) 
+		{
+			finalEnts.push_back(ent);
+		}
+	}
+
+	return finalEnts;
+}
+
 void QuadTree::Draw()
 {
 	// Tree specific settings
