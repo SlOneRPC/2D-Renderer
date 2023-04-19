@@ -23,6 +23,9 @@ Global
 		Testing|Any CPU = Testing|Any CPU
 		Testing|x64 = Testing|x64
 		Testing|x86 = Testing|x86
+		Unit_Test|Any CPU = Unit_Test|Any CPU
+		Unit_Test|x64 = Unit_Test|x64
+		Unit_Test|x86 = Unit_Test|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Debug|Any CPU.ActiveCfg = Debug|x64
@@ -49,6 +52,12 @@ Global
 		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Testing|x64.Build.0 = Testing|x64
 		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Testing|x86.ActiveCfg = Testing|x64
 		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Testing|x86.Build.0 = Testing|x64
+		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Unit_Test|Any CPU.ActiveCfg = Unit_Test|x64
+		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Unit_Test|Any CPU.Build.0 = Unit_Test|x64
+		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Unit_Test|x64.ActiveCfg = Unit_Test|x64
+		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Unit_Test|x64.Build.0 = Unit_Test|x64
+		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Unit_Test|x86.ActiveCfg = Unit_Test|x64
+		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Unit_Test|x86.Build.0 = Unit_Test|x64
 		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Debug|Any CPU.Build.0 = Debug|x64
 		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Debug|x64.ActiveCfg = Debug|x64
@@ -73,6 +82,12 @@ Global
 		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Testing|x64.Build.0 = Testing|x64
 		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Testing|x86.ActiveCfg = Testing|Win32
 		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Testing|x86.Build.0 = Testing|Win32
+		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Unit_Test|Any CPU.ActiveCfg = Testing|x64
+		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Unit_Test|Any CPU.Build.0 = Testing|x64
+		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Unit_Test|x64.ActiveCfg = Release|x64
+		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Unit_Test|x64.Build.0 = Release|x64
+		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Unit_Test|x86.ActiveCfg = Testing|Win32
+		{DC6D9F1F-A7F2-4AA7-8EFC-B06ACA329586}.Unit_Test|x86.Build.0 = Testing|Win32
 		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -97,6 +112,12 @@ Global
 		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Testing|x64.Build.0 = Debug|Any CPU
 		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Testing|x86.ActiveCfg = Debug|Any CPU
 		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Testing|x86.Build.0 = Debug|Any CPU
+		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Unit_Test|Any CPU.ActiveCfg = Release|Any CPU
+		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Unit_Test|Any CPU.Build.0 = Release|Any CPU
+		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Unit_Test|x64.ActiveCfg = Release|Any CPU
+		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Unit_Test|x64.Build.0 = Release|Any CPU
+		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Unit_Test|x86.ActiveCfg = Release|Any CPU
+		{EB85B71F-F1F3-4D65-AE2E-8B90142A1AB4}.Unit_Test|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

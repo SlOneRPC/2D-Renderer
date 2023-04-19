@@ -2,9 +2,6 @@
 #include "Core/Random.h"
 #include "Entities/EndGame.h"
 
-#include <Windows.h>
-#include <thread>
-
 void SpaceRaidersScene::Init()
 {
 	instance = this;
@@ -65,14 +62,8 @@ void SpaceRaidersScene::Init()
 		auto wall = Wall::Create(entityId++, pos);
 		AddCustomEntity(wall);
 	}
-	
 
-	// Start Game
-
-	/*std::thread t([]() {
-		PlaySoundA((LPCSTR)(BASE_APP_PATH + std::string("audio/IngameSound.wav")).c_str(), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-	});
-	t.join();*/
+	drawList = new ImDrawList(ImGui::GetDrawListSharedData());
 }
 
 void SpaceRaidersScene::OnUpdate(TimeStep ts)
@@ -93,16 +84,26 @@ void SpaceRaidersScene::OnUpdate(TimeStep ts)
 		}
 	}
 
+	bool reachedBottom = false;
+
+	for (auto& entry : aliens) 
+	{
+		if (entry.second->reachedBottom) 
+		{
+			reachedBottom = true;
+		}
+	}
+
 	if (hasReachedEdge) 
 	{
 		for (auto& entry : aliens)
 		{
-			entry.second->SetMoveOpposite();
+			entry.second->SetMoveOpposite(!reachedBottom);
 		}
 	}
 
 	int random = RandomGenerator::random(6);
-	for (size_t x = 6; x >= 1; x--)
+	for (int x = 6; x >= 1; x--)
 	{
 		auto entry = glm::ivec2{ x, random };
 		if (aliens.find(entry) != aliens.end())
@@ -111,8 +112,6 @@ void SpaceRaidersScene::OnUpdate(TimeStep ts)
 			break;
 		}
 	}
-
-	Scene::OnUpdate(ts);
 }
 
 void SpaceRaidersScene::RemoveEntity(Entity* ent)

@@ -24,7 +24,7 @@ void Rocket::OnUpdate(TimeStep ts)
 {
 	const float movementSpeed = 2.1f;
 
-	if (InputHandler::IsKeyPressed(GLFW_KEY_D)) 
+	if (InputHandler::IsKeyPressed(GLFW_KEY_D) || InputHandler::IsKeyPressed(GLFW_KEY_RIGHT))
 	{
 		auto transform = this->GetComponent<TransformComponent>();
 		auto newPos = transform->translation.x + movementSpeed * ts;
@@ -34,7 +34,7 @@ void Rocket::OnUpdate(TimeStep ts)
 			transform->translation.x = newPos;
 		}
 	}
-	else if (InputHandler::IsKeyPressed(GLFW_KEY_A)) 
+	if (InputHandler::IsKeyPressed(GLFW_KEY_A) || InputHandler::IsKeyPressed(GLFW_KEY_LEFT))
 	{
 		auto transform = this->GetComponent<TransformComponent>();
 		auto newPos = transform->translation.x - movementSpeed * ts;
@@ -44,7 +44,7 @@ void Rocket::OnUpdate(TimeStep ts)
 			transform->translation.x = newPos;
 		}
 	}
-	else if (InputHandler::IsKeyPressed(GLFW_KEY_LEFT_SHIFT)) 
+	if (InputHandler::IsKeyPressed(GLFW_KEY_LEFT_SHIFT) || InputHandler::IsKeyPressed(GLFW_KEY_SPACE))
 	{
 		if (glfwGetTime() - lastShotTime > 2.0f) 
 		{

@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene/Scene.h"
+#include "imgui.h"
 
 #include "Entities/Alien.h"
 #include "Entities/Rocket.h"
@@ -30,6 +31,8 @@ private:
 	std::vector<Wall*> walls;
 	Rocket* player;
 	int entityId = 0;
+
+	ImDrawList* drawList;
 
 	inline static SpaceRaidersScene* instance;
 };

@@ -1,5 +1,6 @@
 #include "EndGame.h"
 #include "OpenGL/Input.h"
+#include "Application.h"
 #include <GLFW/glfw3.h>
 #include "../SpaceRaidersScene.h"
 
@@ -18,5 +19,9 @@ void EndGame::OnUpdate(TimeStep ts)
 	if (InputHandler::IsKeyPressed(GLFW_KEY_SPACE)) 
 	{
 		SpaceRaidersScene::GetScene()->RestartGame();
+	}
+	else if (InputHandler::IsKeyPressed(GLFW_KEY_ESCAPE)) 
+	{
+		glfwSetWindowShouldClose(g_window->GetGlFWWindow(), GL_TRUE);
 	}
 }

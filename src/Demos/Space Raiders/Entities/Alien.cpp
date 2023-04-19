@@ -4,11 +4,6 @@
 #include<cstdlib>
 #include <GLFW/glfw3.h>
 
-// purple - 4 hits
-// red    - 3 hits
-// orange - 2 hits
-// green  - 1 hit
-
 static float lastShot = 0.f;
 
 std::shared_ptr<Entity> Alien::Create(int id, glm::vec2 pos, AlienType type)
@@ -30,8 +25,6 @@ std::shared_ptr<Entity> Alien::Create(int id, glm::vec2 pos, AlienType type)
 
 void Alien::OnUpdate(TimeStep ts)
 {
-	const float speed = 0.4f;
-
 	TransformComponent* transform = this->GetComponent<TransformComponent>();
 
 	if (movingLeft) 
@@ -55,14 +48,24 @@ void Alien::OnUpdate(TimeStep ts)
 	canShoot = false;
 }
 
-void Alien::SetMoveOpposite()
+void Alien::SetMoveOpposite(bool moveDown)
 {
 	if (glfwGetTime() - lastMove > 1.0f) 
 	{
 		movingLeft = !movingLeft;
-		auto transform = this->GetComponent<TransformComponent>();
-		transform->translation.y -= 0.2f;
-		lastMove = glfwGetTime();
+
+		if (!reachedBottom && moveDown)
+		{
+			auto transform = this->GetComponent<TransformComponent>();
+			
+			transform->translation.y -= 0.2f;
+
+			lastMove = glfwGetTime();
+
+			speed += 0.1f;
+
+			reachedBottom = transform->translation.y <= -0.1f;
+		}
 	}
 }
 
