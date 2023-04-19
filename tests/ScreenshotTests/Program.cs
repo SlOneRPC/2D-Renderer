@@ -18,6 +18,14 @@ Test.AssertTrue(new ScreenshotComparison("Zoomed Out Scene",
 Test.AssertTrue(new ScreenshotComparison("Quad scene",
     renderer,
     "square.scene").ScreenshotsAreEqual());
+Test.AssertTrue(new ScreenshotComparison("Moving Entities",
+    renderer,
+    "movingEntity.scene",
+    4).ScreenshotsAreEqual());
+Test.AssertTrue(new ScreenshotComparison("Rotating Entity",
+    renderer,
+    "rotate.scene",
+    4).ScreenshotsAreEqual());
 
 
 Test.CheckIfAllPassed();
