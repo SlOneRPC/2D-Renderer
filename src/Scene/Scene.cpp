@@ -103,6 +103,7 @@ void Scene::OnRender()
 
 void Scene::ShowFps(TimeStep ts)
 {
+#ifndef TESTING
 	bool open = true;
 
 	ImGui::SetNextWindowPos({ 0, 0 });
@@ -120,6 +121,7 @@ void Scene::ShowFps(TimeStep ts)
 	ImGui::Text((std::string("FPS: ") + std::to_string(fps)).c_str());
 
 	ImGui::End();
+#endif // !TESTING
 }
 
 int Scene::AddCustomEntity(std::shared_ptr<Entity>& ent)
