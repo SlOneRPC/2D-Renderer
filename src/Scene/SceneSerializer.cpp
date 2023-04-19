@@ -41,7 +41,7 @@ bool SceneSerializer::DeserialiseScene(Scene* scene)
 		for (auto ent : entities) 
 		{
 			int id = ent["Entity"].as<int>();
-			auto type = ent["Type"].as<std::string>();
+			auto type = ent["Type"].as<std::string>("class Entity");
 
 			if (entityTypeMap.find(type) != entityTypeMap.end())
 			{

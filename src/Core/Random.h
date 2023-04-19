@@ -21,7 +21,6 @@ public:
 		int i;
 		i = dist(engine);
 
-		LOG_INFO(i);
 		return i;
 	}
 };

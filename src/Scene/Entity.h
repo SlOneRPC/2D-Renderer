@@ -12,7 +12,6 @@
 #include "glm/vec2.hpp"
 
 #define YAML_CPP_API
-#define YAML_CPP_DLL
 #include "yaml-cpp/yaml.h"
 #include <functional>
 
@@ -120,7 +119,9 @@ public:
 class Entity {
 public:
 	Entity(int id) : id(id) {};
+	Entity() : id(MAX_ENT_ID++) {};
 
+	static int MAX_ENT_ID;
 	int id;
 
 	inline static std::shared_ptr<Entity> Create(int id) { return std::make_shared<Entity>(id); }
@@ -176,3 +177,5 @@ inline void RegisterEntity()
 	
 	entityTypeMap[std::string(name)] = T::Create;
 }
+
+inline int Entity::MAX_ENT_ID = 1;

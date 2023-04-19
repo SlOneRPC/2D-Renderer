@@ -99,7 +99,7 @@ bool Shader::SetupShader(const std::string& path, unsigned int type)
 		return false;
 	}
 
-	LOG_INFO("Sucessfully compiled shader -> " + path);
+	LOG_INFO("Successfully compiled shader -> " + path);
 
 	glAttachShader(programId, shader);
 	return true;
