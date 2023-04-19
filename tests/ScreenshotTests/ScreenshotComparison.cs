@@ -5,6 +5,8 @@ using System.Drawing.Imaging;
 using ScreenshotTests;
 using System.Drawing;
 using Codeuctivity.ImageSharpCompare;
+using System.Threading;
+using System.IO;
 
 namespace ScreenshotTests
 {
@@ -88,7 +90,7 @@ namespace ScreenshotTests
                 return;
             }
 
-            Bitmap? image = PrintThisWindow(p.MainWindowHandle);
+            Bitmap image = PrintThisWindow(p.MainWindowHandle);
 
             if (!Directory.Exists("./actual")) Directory.CreateDirectory("./actual");
             image?.Save("./actual/" + location + ".jpg");
