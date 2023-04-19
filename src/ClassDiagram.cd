@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IndexBuffer">
+    <Position X="21.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAEAABAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>OpenGL\IndexBuffer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shader">
+    <Position X="18.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAEAgEAAAAAAAAAAAAAAAAgAAAgAAAAABAAEAAAQAAA=</HashCode>
+      <FileName>OpenGL\Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture">
+    <Position X="20" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAgAAAAAAAAAAAAAAAABAAAAIAAAAAAAA=</HashCode>
+      <FileName>OpenGL\Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VertexBuffer">
+    <Position X="14.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAgAABAAAAAAAAAAAAAAAAAACAAAAIAAAECAAAECA=</HashCode>
+      <FileName>OpenGL\VertexBuffer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Window">
+    <Position X="17.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAQAAAAAAAAQAAAAAIAAAACAAAIAA=</HashCode>
+      <FileName>OpenGL\Window.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Renderer2D">
+    <Position X="18" Y="3.75" Width="1.75" />
+    <Members>
+      <Field Name="viewProjection" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIAACAAgAAAAAAAAAAAAAAAAAAIEAAAAAAAQAIAAAA=</HashCode>
+      <FileName>Renderer\Renderer2D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrthographicCamera">
+    <Position X="20.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAIAAEQACAAAAAAAAACAhAAAAAEAggAAAAAAAAQAAA=</HashCode>
+      <FileName>OpenGL\OrthographicCamera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneSerializer">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAIEAAACAAAAAABEABAAAAAQAAAAIAA=</HashCode>
+      <FileName>Scene\SceneSerializer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Node">
+    <Position X="8.25" Y="13.25" Width="1.5" />
+    <Members>
+      <Field Name="boundingBox" Hidden="true" />
+      <Field Name="centrePoint" Hidden="true" />
+      <Field Name="children" Hidden="true" />
+      <Field Name="entities" Hidden="true" />
+      <Field Name="leafNode" Hidden="true" />
+      <Field Name="parent" Hidden="true" />
+      <Field Name="size" Hidden="true" />
+      <Field Name="trackers" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BAAAAQCIACAAAgRAgIADQAABAAAAAQAgAIAAAAEAgAA=</HashCode>
+      <FileName>Scene\QuadTree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuadTree">
+    <Position X="8.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAIEAAAAwAABIABAAAAAAAAQAAEAIACAACAAAA=</HashCode>
+      <FileName>Scene\QuadTree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Component">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAEAAAAAABAAAAABAA=</HashCode>
+      <FileName>Scene\Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransformComponent">
+    <Position X="0.5" Y="1" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAEIAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scene\Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpriteComponent">
+    <Position X="0.5" Y="3.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAACAAAAAAAAAgAAABAAAAAAAAA=</HashCode>
+      <FileName>Scene\Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuadComponent">
+    <Position X="3" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>EAABAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Scene\Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entity">
+    <Position X="5.5" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAIAAAEAACABQAAACAAAEAAACAAAAEAAgA=</HashCode>
+      <FileName>Scene\Entity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EntityList">
+    <Position X="8.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAACAAAAAAAQAAgAAFAAAAAAAAQQAAAIACgAABAAA=</HashCode>
+      <FileName>Scene\EntityList.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SandboxScene">
+    <Position X="10.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAEEAAA=</HashCode>
+      <FileName>Demos\Tests\SandboxScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BasicDemoScene">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Demos\Tests\DemoScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VertexLayout">
+    <Position X="16.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAIAAAAAAAABIAAAAAAAAAAAACAAAAAAACA=</HashCode>
+      <FileName>OpenGL\VertexLayout.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VertexArray">
+    <Position X="13" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAEAAAAAAEAAAAAAiAEAEAAAgI=</HashCode>
+      <FileName>OpenGL\VertexArray.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene">
+    <Position X="11.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IBAAgIAAAgAAAACAgIAAYAAAAIAAACAQAAACAEEAAAA=</HashCode>
+      <FileName>Scene\Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingEntity">
+    <Position X="8.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAABAAAAAEAAAA=</HashCode>
+      <FileName>Demos\Tests\MovingEntity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeStep">
+    <Position X="19.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAIBAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Core\TimeStep.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
