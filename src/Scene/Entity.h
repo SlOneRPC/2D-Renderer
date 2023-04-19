@@ -176,6 +176,7 @@ inline void RegisterEntity()
 	auto name = typeid(T).name();
 	
 	entityTypeMap[std::string(name)] = T::Create;
+	LOG_INFO("Registered type: " + std::string(name));
 }
 
 inline int Entity::MAX_ENT_ID = 1;
