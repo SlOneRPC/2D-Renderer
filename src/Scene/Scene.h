@@ -8,12 +8,12 @@ public:
 	Scene(float size);
 	Scene(const std::string& path);
 
-	virtual void OnUpdate(TimeStep ts);
+	void BeginScene(TimeStep ts);
+
+	virtual void OnUpdate(TimeStep ts) {};
 
 	virtual void OnImguiRender() {};
 
-	int CreateQuadEntity(const glm::vec2& pos, const Colour& colour, const glm::vec2& scale = glm::vec2(1.0f, 1.0f), float rotation = 0.f);
-	int CreateTexturedEntity(const glm::vec2& pos, const std::string& path, float rotation = 0.f);
 	int AddCustomEntity(std::shared_ptr<Entity>& ent);
 
 	void Save(std::string path);
@@ -24,11 +24,19 @@ public:
 	float GetSize() { return size; }
 
 	void Init(float size);
-protected:
 	virtual void Init() {};
+protected:
+	void UpdateEntities(TimeStep ts);
+	void OnRender();
+	void ShowFps(TimeStep ts);
+
 
 	float size;
 	EntityList entList;
 	OrthographicCamera camera;
 	std::unique_ptr<Renderer2D> renderer2D;
 };
+
+#ifdef TESTING
+inline bool updateFrame = false;
+#endif

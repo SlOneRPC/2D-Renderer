@@ -1,5 +1,6 @@
 #include "DemoScene.h"
 #include "Core/Logging.h"
+#include "BasicQuadEntity.h"
 
 void BasicDemoScene::Init()
 {
@@ -20,7 +21,8 @@ void BasicDemoScene::Init()
 			float posx = (offset * x) - Count / 2;
 			float posy = (offset * y) - Count / 2;
 
-			CreateQuadEntity(glm::vec2(posx, posy), { 1.0, 0.0, 0.0, 1.0 }, glm::vec2{1.0f, 1.0f}, 45.f);
+			auto quad = BasicQuadEntity::CreateNonTextured(glm::vec2(posx, posy), glm::vec2(1.0f, 1.0f), 45.f, { 1.0, 0.0, 0.0f, 1.0 });
+			AddCustomEntity(quad);
 		}
 	}
 
