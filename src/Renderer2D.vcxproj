@@ -110,6 +110,9 @@
       <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;winmm.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\vendor\glfw-3.3.8\lib-vc2019;..\vendor\glew-2.1.0\lib\Release\x64;..\vendor\yaml-cpp\build\Debug;..\vendor\yaml-cpp\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\resources\ (xcopy /Q /E /Y /I ..\resources ..\bin\build\Debug\resources &gt; nul) ELSE (xcopy /Q /Y /I ..\resources ..\bin\build\Debug\resources &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -133,6 +136,9 @@
       <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;winmm.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\vendor\glfw-3.3.8\lib-vc2019;..\vendor\glew-2.1.0\lib\Release\x64;..\vendor\yaml-cpp\build\Debug;..\vendor\yaml-cpp\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\resources\ (xcopy /Q /E /Y /I ..\resources ..\bin\build\Release\resources &gt; nul) ELSE (xcopy /Q /Y /I ..\resources ..\bin\build\Release\resources &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='UnitTest|x64'">
     <ClCompile>
@@ -158,12 +164,15 @@
       <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;winmm.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\vendor\glfw-3.3.8\lib-vc2019;..\vendor\glew-2.1.0\lib\Release\x64;..\vendor\yaml-cpp\build\Debug;..\vendor\yaml-cpp\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\resources\ (xcopy /Q /E /Y /I ..\resources ..\bin\build\UnitTest\resources &gt; nul) ELSE (xcopy /Q /Y /I ..\resources ..\bin\build\UnitTest\resources &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='IntegrationTest|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NDEBUG;GLEW_STATIC;BASE_APP_PATH="../resources/";YAML_CPP_DLL;TESTING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;GLEW_STATIC;BASE_APP_PATH="resources/";YAML_CPP_DLL;TESTING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)vendor\glew-2.1.0\include;$(SolutionDir)vendor\glfw-3.3.8\include;$(SolutionDir)vendor\imgui;$(SolutionDir)vendor\imgui\backends;$(SolutionDir)vendor\stb-image;$(SolutionDir)vendor\glm;$(SolutionDir)src;$(SolutionDir)vendor\yaml-cpp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -181,6 +190,9 @@
       <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;winmm.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\vendor\glfw-3.3.8\lib-vc2019;..\vendor\glew-2.1.0\lib\Release\x64;..\vendor\yaml-cpp\build\Debug;..\vendor\yaml-cpp\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>IF EXIST ..\resources\ (xcopy /Q /E /Y /I ..\resources ..\bin\build\IntegrationTest\resources &gt; nul) ELSE (xcopy /Q /Y /I ..\resources ..\bin\build\IntegrationTest\resources &gt; nul)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />

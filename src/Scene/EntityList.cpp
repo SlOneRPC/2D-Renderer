@@ -68,10 +68,12 @@ std::vector<Entity*> EntityList::GetCollidingEntities(Entity* other)
 
 void EntityList::DrawQuadTree()
 {
+#ifdef DEBUG
     if (ImGui::Button("Recreate quad tree")) 
     {
         RebuildTree();
     }
+#endif
     tree.Draw();
 }
 

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Renderer2D", "src\Renderer2D.vcxproj", "{32641300-1E1C-554D-8723-2EA973FAEF3D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoogleTests", "tests\GoogleTests\GoogleTests.vcxproj", "{55AE7AA4-C163-F399-4A58-ED70B60CEA9D}"
@@ -8,7 +10,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoogleTests", "tests\Google
 		{32641300-1E1C-554D-8723-2EA973FAEF3D} = {32641300-1E1C-554D-8723-2EA973FAEF3D}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenshotTests", "tests\ScreenshotTests\ScreenshotTests.csproj", "{76677D39-E2F2-EAFD-EB03-6EF2570E47FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenshotTests", "tests\ScreenshotTests\ScreenshotTests.csproj", "{76677D39-E2F2-EAFD-EB03-6EF2570E47FE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{32641300-1E1C-554D-8723-2EA973FAEF3D} = {32641300-1E1C-554D-8723-2EA973FAEF3D}
 	EndProjectSection
@@ -25,10 +27,12 @@ Global
 		{32641300-1E1C-554D-8723-2EA973FAEF3D}.IntegrationTest|Any CPU.ActiveCfg = IntegrationTest|x64
 		{32641300-1E1C-554D-8723-2EA973FAEF3D}.Release|Any CPU.ActiveCfg = Release|x64
 		{32641300-1E1C-554D-8723-2EA973FAEF3D}.UnitTest|Any CPU.ActiveCfg = UnitTest|x64
+		{32641300-1E1C-554D-8723-2EA973FAEF3D}.UnitTest|Any CPU.Build.0 = UnitTest|x64
 		{55AE7AA4-C163-F399-4A58-ED70B60CEA9D}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{55AE7AA4-C163-F399-4A58-ED70B60CEA9D}.IntegrationTest|Any CPU.ActiveCfg = IntegrationTest|x64
 		{55AE7AA4-C163-F399-4A58-ED70B60CEA9D}.Release|Any CPU.ActiveCfg = Release|x64
 		{55AE7AA4-C163-F399-4A58-ED70B60CEA9D}.UnitTest|Any CPU.ActiveCfg = UnitTest|x64
+		{55AE7AA4-C163-F399-4A58-ED70B60CEA9D}.UnitTest|Any CPU.Build.0 = UnitTest|x64
 		{76677D39-E2F2-EAFD-EB03-6EF2570E47FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76677D39-E2F2-EAFD-EB03-6EF2570E47FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76677D39-E2F2-EAFD-EB03-6EF2570E47FE}.IntegrationTest|Any CPU.ActiveCfg = Release|Any CPU
@@ -36,7 +40,6 @@ Global
 		{76677D39-E2F2-EAFD-EB03-6EF2570E47FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76677D39-E2F2-EAFD-EB03-6EF2570E47FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76677D39-E2F2-EAFD-EB03-6EF2570E47FE}.UnitTest|Any CPU.ActiveCfg = Release|Any CPU
-		{76677D39-E2F2-EAFD-EB03-6EF2570E47FE}.UnitTest|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -18,7 +18,7 @@ std::shared_ptr<Entity> Alien::Create(int id, glm::vec2 pos, AlienType type)
 	};
 
 	alien->AddComponent<TransformComponent>(pos, 0, glm::vec2(0.5f));
-	alien->AddComponent<SpriteComponent>(BASE_APP_PATH + alienFileMap[(int)type]);
+	alien->AddComponent<SpriteComponent>(alienFileMap[(int)type]);
 
 	return alien;
 }

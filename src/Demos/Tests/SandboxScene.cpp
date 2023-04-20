@@ -9,7 +9,7 @@ void SandboxScene::CreateEntitiy(const glm::vec2& pos, const std::string& textur
 	std::shared_ptr<Entity> ent = std::make_shared<MovingEntity>(baseEntId++);
 
 	ent->AddComponent<TransformComponent>(pos, 0, glm::vec2{0.2f});
-	ent->AddComponent<SpriteComponent>(std::string(BASE_APP_PATH + texturePath));
+	ent->AddComponent<SpriteComponent>(std::string(texturePath));
 
 	AddCustomEntity(ent);
 }

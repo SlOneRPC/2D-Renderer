@@ -1,0 +1,17 @@
+Scene Name: Untitled
+Size: 8
+Camera:
+  Zoom: 4
+  Position_x: 0
+  Position_y: 0
+Entities:
+  - Entity: 0
+    Type: class SpinningEntity
+    class TransformComponent:
+      translation_x: 0.0
+      translation_y: 0.0
+      rotation: 0
+      scale_x: 0.7
+      scale_y: 0.7
+    class SpriteComponent:
+      TextureLocation: images/pacman.png

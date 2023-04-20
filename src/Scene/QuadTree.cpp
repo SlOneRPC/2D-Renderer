@@ -80,6 +80,7 @@ std::vector<Entity*> QuadTree::GetCollidingEntities(Entity* other)
 
 void QuadTree::Draw()
 {
+#ifdef DEBUG
 	// Tree specific settings
 	ImGui::PushItemWidth(150);
 	ImGui::DragInt("Max entities per node", &MaxEntitiesPerNode, 1.0f, 1, 100);
@@ -88,6 +89,8 @@ void QuadTree::Draw()
 	ImGui::PopItemWidth();
 
 	ImGui::Separator();
+
+#endif
 
 	Colour col;
 	int id = 0;
@@ -261,7 +264,7 @@ void Node::Draw(Colour& col, int& id)
 	{
 		const Colour white{ 1.0f, 1.0f, 1.0f, 1.0f };
 		g_Renderer->DrawOutlineQuad(boundingBox.Min + ((boundingBox.Max - boundingBox.Min) / 2.f), { boundingBox.area.width, boundingBox.area.height }, white, 0.05f);
-
+#ifdef DEBUG
 		ImGui::PushID(id);
 		ImGui::Text((std::format("Node {} details:", std::to_string(id)).c_str()));
 		ImGui::Text(("Entities=" + std::to_string(entities.size())).c_str());
@@ -270,6 +273,7 @@ void Node::Draw(Colour& col, int& id)
 		ImGui::PopID();
 		ImGui::Separator();
 		id++;
+#endif
 	}
 	else 
 	{

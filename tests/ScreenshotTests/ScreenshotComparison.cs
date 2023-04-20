@@ -55,7 +55,7 @@ namespace ScreenshotTests
             p = new Process();
             p.StartInfo.FileName = executablePath;
             p.StartInfo.Arguments = programArgs;
-            p.StartInfo.WorkingDirectory = @"../../../../../bin/build/Test/";
+            p.StartInfo.WorkingDirectory = @"../../../../../bin/build/IntegrationTest/";
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardOutput = false;
             p.Start();

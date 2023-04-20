@@ -15,7 +15,7 @@ std::shared_ptr<Entity> BasicQuadEntity::CreateTextured(const glm::vec2& pos, co
 	std::shared_ptr<Entity> ent = std::make_shared<Entity>();
 
 	ent->AddComponent<TransformComponent>(pos, rotation, glm::vec2{ 1.0f, 1.0f });
-	ent->AddComponent<SpriteComponent>(std::string(BASE_APP_PATH + path));
+	ent->AddComponent<SpriteComponent>(std::string(path));
 
 	return ent;
 }
