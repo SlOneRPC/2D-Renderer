@@ -19,12 +19,16 @@ struct VertexData
     glm::vec2 textureCoords;
 };
 
+struct RenderData {
+};
+
 static std::unique_ptr<Shader> flatColourShader;
 static std::unique_ptr<Shader> textureShader;
 
 static std::unique_ptr<VertexArray> quadVertexArray;
 static std::unique_ptr<VertexArray> triangleVertexArray;
 
+Renderer2D* g_Renderer;
 
 Renderer2D::Renderer2D()
 {
@@ -82,6 +86,10 @@ Renderer2D::Renderer2D()
         triangleVertexArray = std::make_unique<VertexArray>(vertexTriangle, quadIndex);
 
         initialSetup = true;
+        g_Renderer = this;
+
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 }
 
@@ -112,6 +120,20 @@ void Renderer2D::DrawQuad(const glm::vec2& transform, const glm::vec2& dimension
 
     DrawQuad(transform, dimensions, flatColourShader);
 }
+
+void Renderer2D::DrawOutlineQuad(const glm::vec2& transform, const glm::vec2& dimensions, const Colour& colour, const float& outlineThickness)
+{
+    flatColourShader->Bind();
+    flatColourShader->SetUniformVec4("uColour", colour.r, colour.g, colour.b, colour.a);
+
+    const glm::vec2 half = dimensions / 2.f;
+
+    DrawQuad(transform - glm::vec2{ 0.f, half.y}, { dimensions.x, outlineThickness }, flatColourShader);
+    DrawQuad(transform - glm::vec2{ half.x, 0.0f }, { outlineThickness, dimensions.y }, flatColourShader);
+    DrawQuad(transform + glm::vec2{ 0.f, half.y }, { dimensions.x, outlineThickness }, flatColourShader);
+    DrawQuad(transform + glm::vec2{ half.x, 0.0f }, { outlineThickness, dimensions.y }, flatColourShader);
+}
+
 
 void Renderer2D::DrawRotatedQuad(const glm::vec2& transform, const glm::vec2& dimensions, const float& rotation)
 {
