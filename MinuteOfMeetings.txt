@@ -9,3 +9,8 @@ Meeting 2 (1/11/22)
 - Looked at the inital chess demo I created in OpenGL and how I had abstracted the OpenGL core concept such as vertex and index buffers into classes
 - Discussed scene graphs and project architecture
 - Aim for next meeting is to finialise project plan
+
+Meeting 3 (14/11/22)
+- Looked over and discussed project setup and inital 2D renderer design
+- Discussed types of scene graphs, decided that a quad tree would be the best approach for what I'm aiming towards
+- Aim for next meeting is to look into quad trees, unit testing and orthographic cameras
