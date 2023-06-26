@@ -19,11 +19,14 @@ public:
 
 	virtual void OnUpdate(TimeStep ts);
 
-	void SetMoveOpposite();
+	void SetMoveOpposite(bool moveDown = true);
 	void SetCanShoot(bool canShoot);
+
+	bool reachedBottom = false;
 private:
 	bool movingLeft = false;
 	bool canShoot = false;
 	float cooldown = 0.0f;
 	float lastMove = 0.0f;
+	float speed = 0.4f;
 };

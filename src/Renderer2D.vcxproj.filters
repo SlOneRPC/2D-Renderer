@@ -62,6 +62,8 @@
     <ClInclude Include="Demos\Space Raiders\SpaceRaidersScene.h" />
     <ClInclude Include="Core\Random.h" />
     <ClInclude Include="Demos\Space Raiders\Entities\EndGame.h" />
+    <ClInclude Include="Demos\Tests\SpinningEntity.h" />
+    <ClInclude Include="Demos\Tests\BasicQuadEntity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\vendor\imgui\backends\imgui_impl_glfw.cpp">
@@ -122,5 +124,10 @@
     <ClCompile Include="Demos\Space Raiders\Entities\Wall.cpp" />
     <ClCompile Include="Demos\Space Raiders\SpaceRaidersScene.cpp" />
     <ClCompile Include="Demos\Space Raiders\Entities\EndGame.cpp" />
+    <ClCompile Include="Demos\Tests\SpinningEntity.cpp" />
+    <ClCompile Include="Demos\Tests\BasicQuadEntity.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

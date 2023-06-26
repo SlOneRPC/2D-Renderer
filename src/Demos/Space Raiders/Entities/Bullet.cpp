@@ -74,13 +74,20 @@ void EnemyBullet::OnUpdate(TimeStep ts)
 		{
 			if (ent->IsEntityType<Wall>())
 			{
-				SpaceRaidersScene::GetScene()->RemoveEntity(ent);
+				auto wall = (Wall*)ent;
+
+				wall->health--;
+				if (wall->health <= 0) 
+				{
+					SpaceRaidersScene::GetScene()->RemoveEntity(ent);
+				}
 				SpaceRaidersScene::GetScene()->RemoveEntity(this);
 				return;
 			}
 			else if (ent->IsEntityType<Rocket>())
 			{
 				SpaceRaidersScene::GetScene()->EndGame(false);
+				return;
 			}
 		}
 	}

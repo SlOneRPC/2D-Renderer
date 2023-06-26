@@ -11,4 +11,6 @@ public:
 	static std::shared_ptr<Entity> Create(int id, glm::vec2 pos);
 
 	virtual void OnUpdate(TimeStep ts);
+
+	int health = 2;
 };

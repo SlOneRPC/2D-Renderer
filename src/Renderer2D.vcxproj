@@ -9,6 +9,10 @@
       <Configuration>dist</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Unit_Test|x64">
+      <Configuration>Unit_Test</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
@@ -38,6 +42,12 @@
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unit_Test|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dist|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
@@ -57,6 +67,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Unit_Test|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='dist|x64'" Label="PropertySheets">
@@ -80,6 +93,13 @@
     <TargetName>Renderer2D</TargetName>
     <TargetExt>.exe</TargetExt>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unit_Test|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\bin\build\lib\</OutDir>
+    <IntDir>..\bin\obj\lib-x86_64\Renderer2D\</IntDir>
+    <TargetName>Renderer2D</TargetName>
+    <TargetExt>.lib</TargetExt>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dist|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>..\bin\build\Dist\</OutDir>
@@ -98,7 +118,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>DEBUG;GLEW_STATIC;%(PreprocessorDefinitions);BASE_APP_PATH="../resources/"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;GLEW_STATIC;%(PreprocessorDefinitions);BASE_APP_PATH="../resources/";YAML_CPP_DLL</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)vendor\glew-2.1.0\include;$(SolutionDir)vendor\glfw-3.3.8\include;$(SolutionDir)vendor\imgui;$(SolutionDir)vendor\imgui\backends;$(SolutionDir)vendor\stb-image;$(SolutionDir)vendor\glm;$(SolutionDir)vendor\yaml-cpp\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -117,7 +137,30 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NDEBUG;GLEW_STATIC;%(PreprocessorDefinitions);BASE_APP_PATH="../resources/"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;GLEW_STATIC;%(PreprocessorDefinitions);BASE_APP_PATH="../resources/";YAML_CPP_DLL</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)vendor\glew-2.1.0\include;$(SolutionDir)vendor\glfw-3.3.8\include;$(SolutionDir)vendor\imgui;$(SolutionDir)vendor\imgui\backends;$(SolutionDir)vendor\stb-image;$(SolutionDir)vendor\glm;$(SolutionDir)vendor\yaml-cpp\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>NotSet</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32s.lib;winmm.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\vendor\glfw-3.3.8\lib-vc2019;..\vendor\glew-2.1.0\lib\Release\x64;..\vendor\yaml-cpp\build\Release\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Unit_Test|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NDEBUG;GLEW_STATIC;%(PreprocessorDefinitions);BASE_APP_PATH="../resources/";BUILD_LIB</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)vendor\glew-2.1.0\include;$(SolutionDir)vendor\glfw-3.3.8\include;$(SolutionDir)vendor\imgui;$(SolutionDir)vendor\imgui\backends;$(SolutionDir)vendor\stb-image;$(SolutionDir)vendor\glm;$(SolutionDir)vendor\yaml-cpp\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -140,7 +183,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NDEBUG;GLEW_STATIC;%(PreprocessorDefinitions);BASE_APP_PATH="resources/"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;GLEW_STATIC;%(PreprocessorDefinitions);BASE_APP_PATH="resources/";YAML_CPP_DLL</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)vendor\glew-2.1.0\include;$(SolutionDir)vendor\glfw-3.3.8\include;$(SolutionDir)vendor\imgui;$(SolutionDir)vendor\imgui\backends;$(SolutionDir)vendor\stb-image;$(SolutionDir)vendor\glm;$(SolutionDir)vendor\yaml-cpp\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -163,7 +206,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>NDEBUG;GLEW_STATIC;%(PreprocessorDefinitions);BASE_APP_PATH="../../../resources/";TESTING</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;GLEW_STATIC;%(PreprocessorDefinitions);BASE_APP_PATH="../../../resources/";TESTING;YAML_CPP_DLL</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)vendor\glew-2.1.0\include;$(SolutionDir)vendor\glfw-3.3.8\include;$(SolutionDir)vendor\imgui;$(SolutionDir)vendor\imgui\backends;$(SolutionDir)vendor\stb-image;$(SolutionDir)vendor\glm;$(SolutionDir)vendor\yaml-cpp\include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -193,10 +236,12 @@
     <ClInclude Include="Demos\Space Raiders\Entities\Rocket.h" />
     <ClInclude Include="Demos\Space Raiders\Entities\Wall.h" />
     <ClInclude Include="Demos\Space Raiders\SpaceRaidersScene.h" />
+    <ClInclude Include="Demos\Tests\BasicQuadEntity.h" />
     <ClInclude Include="Demos\Tests\DemoScene.h" />
     <ClInclude Include="Demos\Tests\MovingEntity.h" />
     <ClInclude Include="Demos\Tests\SandboxScene.h" />
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Demos\Tests\SpinningEntity.h" />
     <ClInclude Include="OpenGL\CommonRender.h" />
     <ClInclude Include="OpenGL\IndexBuffer.h" />
     <ClInclude Include="OpenGL\Input.h" />
@@ -230,9 +275,11 @@
     <ClCompile Include="Demos\Space Raiders\Entities\Rocket.cpp" />
     <ClCompile Include="Demos\Space Raiders\Entities\Wall.cpp" />
     <ClCompile Include="Demos\Space Raiders\SpaceRaidersScene.cpp" />
+    <ClCompile Include="Demos\Tests\BasicQuadEntity.cpp" />
     <ClCompile Include="Demos\Tests\DemoScene.cpp" />
     <ClCompile Include="Demos\Tests\MovingEntity.cpp" />
     <ClCompile Include="Demos\Tests\SandboxScene.cpp" />
+    <ClCompile Include="Demos\Tests\SpinningEntity.cpp" />
     <ClCompile Include="OpenGL\IndexBuffer.cpp" />
     <ClCompile Include="OpenGL\Input.cpp" />
     <ClCompile Include="OpenGL\OrthographicCamera.cpp" />
@@ -247,6 +294,9 @@
     <ClCompile Include="Scene\QuadTree.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Scene\SceneSerializer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
