@@ -56,6 +56,11 @@ std::vector<Entity*> EntityList::GetVisibleEntities(OrthographicCamera& camera)
     return tree.GetEntities(camera.GetZoom() + camera.GetPosition(), fabsf(camera.GetZoom()) - camera.GetPosition());
 }
 
+std::vector<std::shared_ptr<Entity>>& EntityList::GetEntities()
+{
+    return entities;
+}
+
 void EntityList::DrawQuadTree()
 {
     if (ImGui::Button("Recreate quad tree")) 

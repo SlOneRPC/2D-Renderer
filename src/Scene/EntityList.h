@@ -18,8 +18,10 @@ public:
 	void DeleteEntity(Entity* entity);
 
 	void UpdateEntity(Entity* entity);
+
 	Entity* GetEntity(int entityId);
 	std::vector<Entity*> GetVisibleEntities(OrthographicCamera& camera);
+	std::vector<std::shared_ptr<Entity>>& GetEntities();
 
 	void DrawQuadTree();
 	void RebuildTree();

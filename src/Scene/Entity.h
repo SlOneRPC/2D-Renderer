@@ -1,15 +1,22 @@
 #pragma once
-#include "glm/vec2.hpp"
-#include "../OpenGL/Texture.h"
 #include <memory>
 #include <vector>
+
 #include "Core/Colour.h"
 #include "Core/TimeStep.h"
+#include "../OpenGL/Texture.h"
+
+#include "glm/vec2.hpp"
+
+#define YAML_CPP_API
+#define YAML_CPP_DLL
+#include "yaml-cpp/yaml.h"
 
 class Component {
 public:
 	inline Component(const std::string& name) : name("class " + name) { }
 	virtual std::string& GetName() { return name; };
+	virtual void Serialise(YAML::Emitter& node) {};
 private:
 	std::string name;
 };
@@ -29,6 +36,17 @@ public:
 		scale = glm::vec2(1.0f, 1.0f);
 	}
 
+	inline void Serialise(YAML::Emitter& node)
+	{
+		node << YAML::Key << "translation_x" << YAML::Value << translation.x;
+		node << YAML::Key << "translation_y" << YAML::Value << translation.y;
+
+		node << YAML::Key << "rotation" << YAML::Value << rotation;
+
+		node << YAML::Key << "scale_x" << YAML::Value << scale.x;
+		node << YAML::Key << "scale_y" << YAML::Value << scale.y;
+	}
+
 	glm::vec2 translation;
 	float rotation;
 	glm::vec2 scale;
@@ -37,10 +55,16 @@ public:
 class SpriteComponent : public Component {
 public:
 
-	inline SpriteComponent(std::shared_ptr<Texture>& texture)
-		: Component("SpriteComponent"), texture(texture) 
+	inline SpriteComponent(const std::string& path)
+		: Component("SpriteComponent"), path(path), texture(std::make_shared<Texture>(path))
 		{ }
 
+	inline void Serialise(YAML::Emitter& node)
+	{
+		node << YAML::Key << "TextureLocation" << YAML::Value << path;
+	}
+
+	std::string path;
 	std::shared_ptr<Texture> texture;
 };
 
@@ -50,6 +74,14 @@ public:
 	inline QuadComponent(const Colour& colour)
 		: Component("QuadComponent"), colour(colour)
 		{ }
+
+	inline void Serialise(YAML::Emitter& node)
+	{
+		node << YAML::Key << "colour_r" << YAML::Value << colour.r;
+		node << YAML::Key << "colour_g" << YAML::Value << colour.g;
+		node << YAML::Key << "colour_b" << YAML::Value << colour.b;
+		node << YAML::Key << "colour_a" << YAML::Value << colour.a;
+	}
 
 	Colour colour;
 };

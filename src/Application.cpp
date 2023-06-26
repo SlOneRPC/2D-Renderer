@@ -44,25 +44,22 @@ int main(void)
 
     LOG_INFO("Glew Intialised");
 
-    std::unique_ptr<BasicDemoScene> demoScene = std::make_unique<BasicDemoScene>(8);
+    //std::unique_ptr<BasicDemoScene> demoScene = std::make_unique<BasicDemoScene>(8);
     std::unique_ptr<SandboxScene> sandboxScene = std::make_unique<SandboxScene>(8);
 
-    demoScene->Init();
+    //demoScene->Init();
     sandboxScene->Init();
 
-    float lastFrameTime = glfwGetTime();
-    TimeStep timestep;
+    TimeStep timestep(glfwGetTime());
 
     while (window->IsOpen())
     {
-        float time = glfwGetTime();
-        timestep = time - lastFrameTime;
-        lastFrameTime = time;
-
-
+        timestep.Update(glfwGetTime());
         sandboxScene->OnUpdate(timestep);
         window->SwapBuffers();
     }
+
+    sandboxScene->Save("test.scene");
 
     CLOSE_CONSOLE();
 
