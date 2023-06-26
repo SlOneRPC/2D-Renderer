@@ -3,15 +3,9 @@
 
 #include <unordered_map>
 
-struct Vector2 { 
-	int x, y;
-
-	bool operator==(const Vector2& other) const
-	{
-		return (x == other.x
-			&& y == other.y);
-	}
-};
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 
 class MyHashFunction {
 public:
@@ -63,6 +57,7 @@ std::unordered_map<std::string, Texture*> textureMap;
 
 ChessBoardDemo::ChessBoardDemo()
 {
+	name = "Chess Demo";
 }
 
 ChessBoardDemo::~ChessBoardDemo()
@@ -143,7 +138,7 @@ void ChessBoardDemo::OnRender()
 					if (pieces.find(position) != pieces.end()) {
 						textureShader->Bind();
 
-						std::string type = position.y <= 2 ? "black-pieces" : "white-pieces";
+						std::string type = position.y <= 4 ? "black-pieces" : "white-pieces";
 						textureMap[type + "/" + pieces.at(position)]->Bind(0);
 					}
 					else 
@@ -168,7 +163,23 @@ void ChessBoardDemo::OnRender()
 
 void ChessBoardDemo::OnImguiRender()
 {
+	if (ImGui::Button("Move Pawn")) 
+	{
+		Vector2 v = {1, 3};
+		MovePiece("pawn", v);
+	}
 
+	if (ImGui::Button("Move King")) 
+	{
+		Vector2 v = { 4, 3 };
+		MovePiece("king", v);
+	}
+
+	if (ImGui::Button("Move Queen")) 
+	{
+		Vector2 v = { 5, 3 };
+		MovePiece("queen", v);
+	}
 }
 
 void ChessBoardDemo::Shutdown()
@@ -179,5 +190,19 @@ void ChessBoardDemo::Shutdown()
 	for (auto const& x : textureMap) 
 	{
 		delete x.second;
+	}
+	textureMap.clear();
+}
+
+void ChessBoardDemo::MovePiece(const std::string& name, Vector2& pos)
+{
+	for (const auto& x : pieces) 
+	{
+		if (x.second == name) 
+		{
+			pieces.erase(x.first);
+			pieces.emplace(pos, name);
+			break;
+		}
 	}
 }

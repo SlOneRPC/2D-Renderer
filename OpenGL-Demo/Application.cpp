@@ -9,6 +9,7 @@
 #include "Demos/QuadDemo.h"
 #include "Demos/ChessBoardDemo.h"
 #include "Demos/TextureDemo.h"
+#include <vector>
 
 int main(void)
 {
@@ -41,8 +42,16 @@ int main(void)
     ImGui_ImplOpenGL3_Init("#version 130");
     bool show_demo_window = true;
 
-    std::unique_ptr<ChessBoardDemo> quadDemo = std::make_unique<ChessBoardDemo>();
-    quadDemo->Init();
+  
+    std::vector<Demo*> demos;
+
+    demos.push_back((Demo*)new QuadDemo);
+    demos.push_back((Demo*)new TextureDemo);
+    demos.push_back((Demo*)new ChessBoardDemo);
+
+    Demo* currentDemo = demos[0];
+
+    currentDemo->Init();
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -52,13 +61,25 @@ int main(void)
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
-        quadDemo->OnRender();
-
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        quadDemo->OnImguiRender();
+        for (Demo* demo : demos) 
+        {
+            if (ImGui::Button(demo->GetDemoName().c_str())) 
+            {
+                currentDemo->Shutdown();
+                currentDemo = demo;
+                currentDemo->Init();
+            }
+        }
+
+        ImGui::Separator();
+
+        currentDemo->OnRender();
+
+        currentDemo->OnImguiRender();
 
        // ImGui::ShowDemoWindow(&show_demo_window);
         ImGui::Render();
