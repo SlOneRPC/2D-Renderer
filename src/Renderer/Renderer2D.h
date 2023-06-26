@@ -2,6 +2,7 @@
 
 #include "OpenGL/Texture.h"
 #include "OpenGL/Shader.h"
+#include <OpenGL/OrthographicCamera.h>
 #include "glm/vec2.hpp"
 
 #include <memory>
@@ -14,7 +15,7 @@ class Renderer2D {
 public:
 	Renderer2D();
 
-	void Begin();
+	void Begin(OrthographicCamera& camera);
 	void End();
 
 	void DrawQuad(const glm::vec2& position, const glm::vec2& dimensions, const Colour& colour);
@@ -23,4 +24,6 @@ public:
 	void DrawRotatedQuad(const glm::vec2& position, const glm::vec2& dimensions, const float& rotation);
 private:
 	void DrawQuad(const glm::vec2& position, const glm::vec2& dimensions, std::unique_ptr<Shader>& shader);
+
+	glm::mat4 viewProjection;
 };
