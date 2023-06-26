@@ -36,3 +36,8 @@ void Window::SwapBuffers()
 {
     glfwSwapBuffers(window);
 }
+
+GLFWwindow* Window::GetGlFWWindow()
+{
+    return window;
+}

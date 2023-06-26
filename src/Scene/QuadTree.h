@@ -87,6 +87,7 @@ public:
 
 	std::vector<Entity*> GetEntities();
 	std::vector<Entity*> GetEntities(const glm::vec2& min, const glm::vec2& max);
+	std::vector<Entity*> GetCollidingEntities(Entity* other);
 
 	void Draw();
 	void Recreate(float newSize);

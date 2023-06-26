@@ -9,6 +9,7 @@ public:
 
 	bool IsOpen();
 	void SwapBuffers();
+	GLFWwindow* GetGlFWWindow();
 private:
 	GLFWwindow* window;
 };

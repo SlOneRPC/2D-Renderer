@@ -23,16 +23,22 @@ void Scene::OnUpdate(TimeStep ts)
 	// Update entities
 	for (Entity* ent : ents) 
 	{
-		glm::vec2 posBefore = ent->GetComponent<TransformComponent>()->translation;
-		ent->OnUpdate(ts);
-		if (posBefore != ent->GetComponent<TransformComponent>()->translation) {
-			entList.UpdateEntity(ent);
+		if (entList.GetEntity(ent->id)) 
+		{
+			glm::vec2 posBefore = ent->GetComponent<TransformComponent>()->translation;
+
+			ent->OnUpdate(ts);
+
+			if (entList.GetEntity(ent->id))
+				if (posBefore != ent->GetComponent<TransformComponent>()->translation)
+					entList.UpdateEntity(ent);
 		}
 	}
 
 	// Draw entities
 	renderer2D->Begin(camera);
     {
+		ents = entList.GetVisibleEntities(camera);
 		for (Entity* ent : ents)
 		{
 			TransformComponent* transformComponent = ent->GetComponent<TransformComponent>();
