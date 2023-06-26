@@ -20,19 +20,19 @@ int EntityList::AddEntity(std::shared_ptr<Entity>& entity)
 
 void EntityList::DeleteEntity(int entityId)
 {
-    std::remove_if(entities.begin(), entities.end(), [&](std::shared_ptr<Entity> entity) { 
+    entities.erase(std::remove_if(entities.begin(), entities.end(), [&](std::shared_ptr<Entity> entity) {
         if (entity->id == entityId) {
             tree.RemoveEntity(entity.get());
             return true;
         }
         return false;
-    });
+    }), entities.end());
 }
 
 void EntityList::DeleteEntity(Entity* entity)
 {
     assert(entity);
-    std::remove_if(entities.begin(), entities.end(), [&](std::shared_ptr<Entity> entity1) { return entity1->id == entity->id;  });
+    entities.erase(std::remove_if(entities.begin(), entities.end(), [&](std::shared_ptr<Entity> entity1) { return entity1->id == entity->id;  }), entities.end());
     tree.RemoveEntity(entity);
 }
 

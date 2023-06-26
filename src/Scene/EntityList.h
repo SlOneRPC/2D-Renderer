@@ -22,9 +22,8 @@ public:
 	std::vector<Entity*> GetVisibleEntities(OrthographicCamera& camera);
 
 	void DrawQuadTree();
-private:
 	void RebuildTree();
-
+private:
 	std::vector<std::shared_ptr<Entity>> entities;
 	QuadTree tree;
 };

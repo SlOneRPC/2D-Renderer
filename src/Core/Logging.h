@@ -12,7 +12,7 @@ void CloseConsole();
 
 #define LOG_INFO(info) SetConsoleColour(15); std::cout << "INFO:  " << info << std::endl
 #define LOG_ERROR(error) SetConsoleColour(12); std::cout << "ERROR:  " << error << std::endl
-#define LOG_WARN(warning) SetConsoleColour(14); std::cout << "WARN: " << warning << std::endl
+#define LOG_WARN(warning) SetConsoleColour(14); std::cout << "WARN:  " << warning << std::endl
 
 #define ALLOC_CONSOLE() CreateConsole()
 #define CLOSE_CONSOLE() CloseConsole()
