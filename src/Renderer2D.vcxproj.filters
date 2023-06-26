@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{2EB4837C-1AEB-840D-C3D7-6A10AFED000F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demos">
+      <UniqueIdentifier>{1DC3060D-89D7-2EBE-5259-D21DBE2C2BEF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demos\Space Raiders">
+      <UniqueIdentifier>{026FE575-6ED0-C283-F73D-0936639EF942}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demos\Space Raiders\Entities">
+      <UniqueIdentifier>{F689E8BE-E244-D86A-8BFC-50B5779622FB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Demos\Tests">
+      <UniqueIdentifier>{9FBFF101-0B75-6AF7-9469-64CE001E61FB}</UniqueIdentifier>
+    </Filter>
     <Filter Include="OpenGL">
       <UniqueIdentifier>{8A864AC8-7628-759E-5FE3-88F24B24FCEE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Renderer">
       <UniqueIdentifier>{7CCE658F-689B-C09A-91B4-AE427DE0F528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{B3F7140E-1F0C-3DBF-E88D-E01E546139F0}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -18,10 +36,62 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="Core\Colour.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Logging.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Random.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\TimeStep.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Space Raiders\Entities\Alien.h">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Space Raiders\Entities\Bullet.h">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Space Raiders\Entities\EndGame.h">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Space Raiders\Entities\Rocket.h">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Space Raiders\Entities\Wall.h">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Space Raiders\SpaceRaidersScene.h">
+      <Filter>Demos\Space Raiders</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Tests\BasicQuadEntity.h">
+      <Filter>Demos\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Tests\DemoScene.h">
+      <Filter>Demos\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Tests\MovingEntity.h">
+      <Filter>Demos\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Tests\SandboxScene.h">
+      <Filter>Demos\Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="Demos\Tests\SpinningEntity.h">
+      <Filter>Demos\Tests</Filter>
+    </ClInclude>
     <ClInclude Include="OpenGL\CommonRender.h">
       <Filter>OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="OpenGL\IndexBuffer.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\Input.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\OrthographicCamera.h">
       <Filter>OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="OpenGL\Shader.h">
@@ -30,7 +100,13 @@
     <ClInclude Include="OpenGL\Texture.h">
       <Filter>OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="OpenGL\VertexArray.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="OpenGL\VertexBuffer.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\VertexLayout.h">
       <Filter>OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="OpenGL\Window.h">
@@ -39,31 +115,21 @@
     <ClInclude Include="Renderer\Renderer2D.h">
       <Filter>Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGL\VertexLayout.h" />
-    <ClInclude Include="OpenGL\VertexArray.h" />
-    <ClInclude Include="OpenGL\OrthographicCamera.h" />
-    <ClInclude Include="Scene\Scene.h" />
-    <ClInclude Include="Scene\EntityList.h" />
-    <ClInclude Include="Scene\Entity.h" />
-    <ClInclude Include="Scene\QuadTree.h" />
-    <ClInclude Include="Core\Logging.h" />
-    <ClInclude Include="Core\Colour.h" />
-    <ClInclude Include="Demos\Tests\DemoScene.h" />
-    <ClInclude Include="Demos\Tests\SandboxScene.h" />
-    <ClInclude Include="Demos\Tests\MovingEntity.h" />
-    <ClInclude Include="Core\TimeStep.h" />
-    <ClInclude Include="Scene\SceneSerializer.h" />
-    <ClInclude Include="OpenGL\Input.h" />
-    <ClInclude Include="Application.h" />
-    <ClInclude Include="Demos\Space Raiders\Entities\Alien.h" />
-    <ClInclude Include="Demos\Space Raiders\Entities\Bullet.h" />
-    <ClInclude Include="Demos\Space Raiders\Entities\Rocket.h" />
-    <ClInclude Include="Demos\Space Raiders\Entities\Wall.h" />
-    <ClInclude Include="Demos\Space Raiders\SpaceRaidersScene.h" />
-    <ClInclude Include="Core\Random.h" />
-    <ClInclude Include="Demos\Space Raiders\Entities\EndGame.h" />
-    <ClInclude Include="Demos\Tests\SpinningEntity.h" />
-    <ClInclude Include="Demos\Tests\BasicQuadEntity.h" />
+    <ClInclude Include="Scene\Entity.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\EntityList.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\QuadTree.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\SceneSerializer.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\vendor\imgui\backends\imgui_impl_glfw.cpp">
@@ -88,7 +154,49 @@
       <Filter>vendor\imgui</Filter>
     </ClCompile>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Core\Logging.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Space Raiders\Entities\Alien.cpp">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Space Raiders\Entities\Bullet.cpp">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Space Raiders\Entities\EndGame.cpp">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Space Raiders\Entities\Rocket.cpp">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Space Raiders\Entities\Wall.cpp">
+      <Filter>Demos\Space Raiders\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Space Raiders\SpaceRaidersScene.cpp">
+      <Filter>Demos\Space Raiders</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Tests\BasicQuadEntity.cpp">
+      <Filter>Demos\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Tests\DemoScene.cpp">
+      <Filter>Demos\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Tests\MovingEntity.cpp">
+      <Filter>Demos\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Tests\SandboxScene.cpp">
+      <Filter>Demos\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="Demos\Tests\SpinningEntity.cpp">
+      <Filter>Demos\Tests</Filter>
+    </ClCompile>
     <ClCompile Include="OpenGL\IndexBuffer.cpp">
+      <Filter>OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL\Input.cpp">
+      <Filter>OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL\OrthographicCamera.cpp">
       <Filter>OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="OpenGL\Shader.cpp">
@@ -97,7 +205,13 @@
     <ClCompile Include="OpenGL\Texture.cpp">
       <Filter>OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="OpenGL\VertexArray.cpp">
+      <Filter>OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="OpenGL\VertexBuffer.cpp">
+      <Filter>OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGL\VertexLayout.cpp">
       <Filter>OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="OpenGL\Window.cpp">
@@ -106,28 +220,17 @@
     <ClCompile Include="Renderer\Renderer2D.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="OpenGL\VertexLayout.cpp" />
-    <ClCompile Include="OpenGL\VertexArray.cpp" />
-    <ClCompile Include="OpenGL\OrthographicCamera.cpp" />
-    <ClCompile Include="Scene\EntityList.cpp" />
-    <ClCompile Include="Core\Logging.cpp" />
-    <ClCompile Include="Scene\QuadTree.cpp" />
-    <ClCompile Include="Scene\Scene.cpp" />
-    <ClCompile Include="Demos\Tests\DemoScene.cpp" />
-    <ClCompile Include="Demos\Tests\SandboxScene.cpp" />
-    <ClCompile Include="Demos\Tests\MovingEntity.cpp" />
-    <ClCompile Include="Scene\SceneSerializer.cpp" />
-    <ClCompile Include="OpenGL\Input.cpp" />
-    <ClCompile Include="Demos\Space Raiders\Entities\Rocket.cpp" />
-    <ClCompile Include="Demos\Space Raiders\Entities\Alien.cpp" />
-    <ClCompile Include="Demos\Space Raiders\Entities\Bullet.cpp" />
-    <ClCompile Include="Demos\Space Raiders\Entities\Wall.cpp" />
-    <ClCompile Include="Demos\Space Raiders\SpaceRaidersScene.cpp" />
-    <ClCompile Include="Demos\Space Raiders\Entities\EndGame.cpp" />
-    <ClCompile Include="Demos\Tests\SpinningEntity.cpp" />
-    <ClCompile Include="Demos\Tests\BasicQuadEntity.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClCompile Include="Scene\EntityList.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\QuadTree.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\SceneSerializer.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
