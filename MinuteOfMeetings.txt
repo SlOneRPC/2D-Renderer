@@ -1,0 +1,11 @@
+Meeting 1 (18/10/22)
+- Initial dicussion around the specifics of the project
+- We decided that an entire game engine would not be possible within the scope of the project, so instead the project will focus on 2D Rendering
+- Discussed using OpenGL for rendering
+- Aim for next meeting is to research OpenGL and graphics programming
+
+
+Meeting 2 (1/11/22)
+- Looked at the inital chess demo I created in OpenGL and how I had abstracted the OpenGL core concept such as vertex and index buffers into classes
+- Discussed scene graphs and project architecture
+- Aim for next meeting is to finialise project plan
