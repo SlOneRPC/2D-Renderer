@@ -1,8 +1,13 @@
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
+#include <iomanip>
 
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
+#include "Demos/QuadDemo.h"
+#include "Demos/ChessBoardDemo.h"
 
 int main(void)
 {
@@ -12,8 +17,9 @@ int main(void)
     if (!glfwInit())
         return -1;
 
+
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "OpenGL Demo", NULL, NULL);
+    window = glfwCreateWindow(1280, 720, "OpenGL Demo", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -24,12 +30,18 @@ int main(void)
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1); // Enable vsync
 
+    if (glewInit() != GLEW_OK)
+        return -1;
+
     /* Imgui Setup */
     ImGui::CreateContext();
     ImGui::StyleColorsDark();
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 130");
     bool show_demo_window = true;
+
+    std::unique_ptr<ChessBoardDemo> quadDemo = std::make_unique<ChessBoardDemo>();
+    quadDemo->Init();
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -39,11 +51,15 @@ int main(void)
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
+        quadDemo->OnRender();
+
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::ShowDemoWindow(&show_demo_window);
+        quadDemo->OnImguiRender();
+
+       // ImGui::ShowDemoWindow(&show_demo_window);
         ImGui::Render();
 
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
