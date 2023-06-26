@@ -87,7 +87,7 @@ TEST(QuadTreeTests, EnsureQuadTreeCanBeRecreated) {
 
 	tree.AddEntity(&ent);
 
-	tree.Recreate();
+	tree.Recreate(4);
 
 	EXPECT_EQ(0, tree.GetEntities().size());
 }

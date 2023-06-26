@@ -50,16 +50,16 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>../../vendor/glm;../../src;../../vendor/imgui</IncludePath>
+    <IncludePath>../../vendor/glm;../../src;../../vendor/yaml-cpp/include;../../vendor/imgui;;../../vendor/yaml-cpp</IncludePath>
     <Microsoft-GoogleTest-Disable-gtest_main>
     </Microsoft-GoogleTest-Disable-gtest_main>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='dist|x64'">
-    <IncludePath>../../vendor/glm;../../src;../../vendor/imgui</IncludePath>
+    <IncludePath>../../vendor/glm;../../src;../../vendor/yaml-cpp/include;../../vendor/imgui;;../../vendor/yaml-cpp</IncludePath>
     <Microsoft-GoogleTest-Disable-gtest_main />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Testing|x64'">
-    <IncludePath>../../vendor/glm;../../src;../../vendor/imgui</IncludePath>
+    <IncludePath>../../vendor/glm;../../src;../../vendor/yaml-cpp/include;../../vendor/imgui;;../../vendor/yaml-cpp</IncludePath>
     <Microsoft-GoogleTest-Disable-gtest_main />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -75,7 +75,7 @@
     <IncludePath>../../vendor/glm;../../src;../../vendor/imgui</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>../../vendor/glm;../../src;../../vendor/imgui;../../vendor/glew-2.1.0/include;../../vendor/glfw-3.3.8/include</IncludePath>
+    <IncludePath>../../vendor/glm;../../src;../../vendor/yaml-cpp/include;../../vendor/imgui;../../vendor/glew-2.1.0/include;../../vendor/glfw-3.3.8/include;../../vendor/yaml-cpp</IncludePath>
   </PropertyGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -104,12 +104,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\src\Renderer2D.vcxproj">
       <Project>{32641300-1e1c-554d-8723-2ea973faef3d}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
@@ -149,8 +149,8 @@
       <SubSystem>Console</SubSystem>
       <EntryPointSymbol>
       </EntryPointSymbol>
-      <AdditionalDependencies>../../bin/dbg/Renderer2D.lib;opengl32.lib;glfw3.lib;glew32s.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\vendor\glfw-3.3.8\lib-vc2019;..\..\vendor\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\vendor\glfw-3.3.8\lib-vc2019;..\..\vendor\glew-2.1.0\lib\Release\x64;..\..\vendor\yaml-cpp\build\Debug\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
@@ -236,10 +236,11 @@
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>../../bin/Renderer2D.lib;opengl32.lib;glfw3.lib;glew32s.lib;C:\Users\joeyl\Desktop\Projects\C++\GameEngine\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\lib\native\v140\windesktop\msvcstl\static\rt-dyn\x64\Release\gtest_main.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\vendor\glfw-3.3.8\lib-vc2019;..\..\vendor\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>../../bin/build/lib/Renderer2D.lib;opengl32.lib;glfw3.lib;glew32s.lib;winmm.lib;C:\Users\joeyl\Desktop\Projects\C++\GameEngine\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\lib\native\v140\windesktop\msvcstl\static\rt-dyn\x64\Release\gtest_main.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\vendor\glfw-3.3.8\lib-vc2019;..\..\vendor\glew-2.1.0\lib\Release\x64;..\..\vendor\yaml-cpp\build\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>
       </EntryPointSymbol>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='dist|x64'">
@@ -258,7 +259,7 @@
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>../../bin/Renderer2D.lib;opengl32.lib;glfw3.lib;glew32s.lib;C:\Users\joeyl\Desktop\Projects\C++\GameEngine\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\lib\native\v140\windesktop\msvcstl\static\rt-dyn\x64\Release\gtest_main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\vendor\glfw-3.3.8\lib-vc2019;..\..\vendor\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>
       </EntryPointSymbol>
@@ -280,7 +281,7 @@
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalDependencies>../../bin/Renderer2D.lib;opengl32.lib;glfw3.lib;glew32s.lib;C:\Users\joeyl\Desktop\Projects\C++\GameEngine\packages\Microsoft.googletest.v140.windesktop.msvcstl.static.rt-dyn.1.8.1.7\lib\native\v140\windesktop\msvcstl\static\rt-dyn\x64\Release\gtest_main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\vendor\glfw-3.3.8\lib-vc2019;..\..\vendor\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <EntryPointSymbol>
       </EntryPointSymbol>

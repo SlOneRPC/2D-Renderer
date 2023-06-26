@@ -58,7 +58,7 @@ TEST(EntityTests, EnsureUpdateIsCalledOnOverridedEntity)
 
 	std::shared_ptr<Entity> ent = std::make_shared<TestEntity>(1);
 
-	TimeStep ts;
+	TimeStep ts(0);
 
 	ent->OnUpdate(ts);
 
