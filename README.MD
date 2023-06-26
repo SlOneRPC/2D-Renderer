@@ -8,7 +8,7 @@
 
 ## Setup
 Run the following commands:
-- `git -c http.sslVerify=false clone https://gitlab2.eeecs.qub.ac.uk/40265990/opengl-demo.git --recursive Renderer2D`
+- `git clone https://github.com/SlOneRPC/2D-Renderer.git --recursive Renderer2D`
 - `cd Renderer2D`
 - `build-deps.bat`
 - `GenerateVS22.bat`
