@@ -24,7 +24,7 @@ public:
 	std::vector<std::shared_ptr<Entity>>& GetEntities();
 
 	void DrawQuadTree();
-	void RebuildTree();
+	void RebuildTree(float size = 0.f);
 private:
 	std::vector<std::shared_ptr<Entity>> entities;
 	QuadTree tree;
