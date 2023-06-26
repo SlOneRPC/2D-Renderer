@@ -59,7 +59,7 @@ std::unordered_map<Vector2, std::string, MyHashFunction> pieces {
 	{ {8, 8}, "rook"}
 };
 
-std::unordered_map<const Vector2, Texture, MyHashFunction> textureMap;
+std::unordered_map<std::string, Texture*> textureMap;
 
 ChessBoardDemo::ChessBoardDemo()
 {
@@ -88,8 +88,11 @@ void ChessBoardDemo::Init()
 	{
 		std::string type = x.first.y <= 2 ? "black-pieces" : "white-pieces";
 
-		Texture t("images/" + type + "/" + x.second + ".png");
-		textureMap.emplace(x.first, t);
+		if (textureMap.find(type + "/" + x.second) != textureMap.end())
+			continue;
+
+		Texture* t = new Texture("images/" + type + "/" + x.second + ".png");
+		textureMap.emplace(type + "/" + x.second, t);
 	}
 
 	glEnable(GL_BLEND);
@@ -127,19 +130,21 @@ void ChessBoardDemo::OnRender()
 				glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, 0);
 
 				glEnableVertexAttribArray(1);
-				glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, (void*)(2 * sizeof(float)));
+				glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, (void*)(sizeof(float) * 2));
 
 				vertex->Bind();
+				index->Bind();
 
 				bool lightSquare = (x + y) % 2 == 0;
 
 				if (iteration == 2)
 				{
 					Vector2 position = { x + 1, y + 1 };
-					if (textureMap.find(position) != textureMap.end()) {
+					if (pieces.find(position) != pieces.end()) {
 						textureShader->Bind();
-						textureMap.at(position).Bind(0);
-						//textureShader->SetUniform1i("uTexture", 0);
+
+						std::string type = position.y <= 2 ? "black-pieces" : "white-pieces";
+						textureMap[type + "/" + pieces.at(position)]->Bind(0);
 					}
 					else 
 					{
@@ -170,4 +175,9 @@ void ChessBoardDemo::Shutdown()
 {
 	delete index;
 	delete shader;
+
+	for (auto const& x : textureMap) 
+	{
+		delete x.second;
+	}
 }
