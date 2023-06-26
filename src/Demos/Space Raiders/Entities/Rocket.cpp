@@ -15,7 +15,7 @@ std::shared_ptr<Entity> Rocket::Create(int id, glm::vec2 pos)
 	auto rocket = std::make_shared<Rocket>(id);
 
 	rocket->AddComponent<TransformComponent>(pos, 0, glm::vec2{ 1.f / 2, 1.27f / 2 });
-	rocket->AddComponent<SpriteComponent>(BASE_APP_PATH + std::string("images/SpaceRaiders/Sprites00.png"));
+	rocket->AddComponent<SpriteComponent>(std::string("images/SpaceRaiders/Sprites00.png"));
 
 	return rocket;
 }

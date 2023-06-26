@@ -68,14 +68,14 @@ class SpriteComponent : public Component {
 public:
 
 	inline SpriteComponent(const std::string& path)
-		: Component("SpriteComponent"), path(path), texture(std::make_shared<Texture>(path))
+		: Component("SpriteComponent"), path(path), texture(std::make_shared<Texture>(BASE_APP_PATH + path))
 		{ }
 
 	inline SpriteComponent(YAML::Node& node)
 		: Component("SpriteComponent")
 	{
 		path = node["TextureLocation"].as<std::string>();
-		texture = std::make_shared<Texture>(path);
+		texture = std::make_shared<Texture>(BASE_APP_PATH + path);
 	}
 
 	inline void Serialise(YAML::Emitter& node)

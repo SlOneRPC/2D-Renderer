@@ -84,6 +84,7 @@ void Scene::OnRender()
 	}
 
 #if defined(DEBUG) || defined(TESTING)
+#ifdef DEBUG
 	OnImguiRender();
 
 	glm::vec3 camPosition(camera.GetPosition());
@@ -96,7 +97,7 @@ void Scene::OnRender()
 	if (ImGui::DragFloat("Cam zoom", &camZoom)) {
 		camera.SetProjection(-camZoom, camZoom, -camZoom, camZoom);
 	}
-
+#endif
 	entList.DrawQuadTree();
 #endif // DEBUG
 }

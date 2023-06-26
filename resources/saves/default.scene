@@ -1,0 +1,1807 @@
+Scene Name: Untitled
+Size: 8
+Camera:
+  Zoom: 4
+  Position_x: 0
+  Position_y: 0
+Entities:
+  - Entity: 0
+    class TransformComponent:
+      translation_x: -3.21813607
+      translation_y: 0.508682728
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 1
+    class TransformComponent:
+      translation_x: -1.68171287
+      translation_y: 2.46992397
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 2
+    class TransformComponent:
+      translation_x: 1.45192719
+      translation_y: -0.161015749
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 3
+    class TransformComponent:
+      translation_x: -0.425814003
+      translation_y: 3.16769934
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 4
+    class TransformComponent:
+      translation_x: 3.3545742
+      translation_y: 1.9728384
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 5
+    class TransformComponent:
+      translation_x: -1.83528054
+      translation_y: 2.8715477
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 6
+    class TransformComponent:
+      translation_x: 2.45586681
+      translation_y: 0.108279705
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 7
+    class TransformComponent:
+      translation_x: -0.796188593
+      translation_y: -3.88012338
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 8
+    class TransformComponent:
+      translation_x: -2.49692249
+      translation_y: -1.08438373
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 9
+    class TransformComponent:
+      translation_x: -2.04964328
+      translation_y: -2.67281103
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 10
+    class TransformComponent:
+      translation_x: 3.32234836
+      translation_y: -0.434461594
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 11
+    class TransformComponent:
+      translation_x: -2.27548027
+      translation_y: -3.96264529
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 12
+    class TransformComponent:
+      translation_x: -3.15685487
+      translation_y: -0.976958513
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 13
+    class TransformComponent:
+      translation_x: 1.02515757
+      translation_y: 0.569475174
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 14
+    class TransformComponent:
+      translation_x: 1.5859642
+      translation_y: 0.857326031
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 15
+    class TransformComponent:
+      translation_x: -1.89827085
+      translation_y: 1.30436087
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 16
+    class TransformComponent:
+      translation_x: 0.378164649
+      translation_y: -1.1830194
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 17
+    class TransformComponent:
+      translation_x: -2.77183342
+      translation_y: 0.861476421
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 18
+    class TransformComponent:
+      translation_x: 3.03840256
+      translation_y: 2.42085028
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 19
+    class TransformComponent:
+      translation_x: 0.93091619
+      translation_y: -1.58439898
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 20
+    class TransformComponent:
+      translation_x: 3.77963591
+      translation_y: 1.81340981
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 21
+    class TransformComponent:
+      translation_x: 3.58308697
+      translation_y: 3.4057436
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 22
+    class TransformComponent:
+      translation_x: 1.08668327
+      translation_y: -2.86129332
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 23
+    class TransformComponent:
+      translation_x: 0.468499362
+      translation_y: -2.11737418
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 24
+    class TransformComponent:
+      translation_x: 3.66976929
+      translation_y: -2.32319117
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 25
+    class TransformComponent:
+      translation_x: 3.00910473
+      translation_y: 2.74922943
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 26
+    class TransformComponent:
+      translation_x: 3.25565577
+      translation_y: 3.99755859
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 27
+    class TransformComponent:
+      translation_x: 1.66384792
+      translation_y: -0.860499859
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 28
+    class TransformComponent:
+      translation_x: -1.09844303
+      translation_y: -1.62175369
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 29
+    class TransformComponent:
+      translation_x: 3.49300623
+      translation_y: -3.81005287
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 30
+    class TransformComponent:
+      translation_x: -0.221218705
+      translation_y: -3.25901055
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 31
+    class TransformComponent:
+      translation_x: 2.18949819
+      translation_y: -3.55027914
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 32
+    class TransformComponent:
+      translation_x: -3.15783143
+      translation_y: 3.35032177
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 33
+    class TransformComponent:
+      translation_x: -1.02104807
+      translation_y: -1.81682801
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 34
+    class TransformComponent:
+      translation_x: 1.47512102
+      translation_y: 1.52946568
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 35
+    class TransformComponent:
+      translation_x: 3.47274208
+      translation_y: 1.81194496
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 36
+    class TransformComponent:
+      translation_x: 0.651366591
+      translation_y: -2.35712767
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 37
+    class TransformComponent:
+      translation_x: 2.72174263
+      translation_y: -0.252326965
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 38
+    class TransformComponent:
+      translation_x: 0.435539573
+      translation_y: 3.59324932
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 39
+    class TransformComponent:
+      translation_x: 2.72735763
+      translation_y: -3.1337626
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 40
+    class TransformComponent:
+      translation_x: 1.56423497
+      translation_y: -0.918118954
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 41
+    class TransformComponent:
+      translation_x: 2.65191722
+      translation_y: 0.871730804
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 42
+    class TransformComponent:
+      translation_x: 1.35109401
+      translation_y: -1.10928679
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 43
+    class TransformComponent:
+      translation_x: -2.01570678
+      translation_y: -2.19916391
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 44
+    class TransformComponent:
+      translation_x: 0.173079967
+      translation_y: 2.42304754
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 45
+    class TransformComponent:
+      translation_x: 0.908698916
+      translation_y: 3.91991949
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 46
+    class TransformComponent:
+      translation_x: 2.78424454
+      translation_y: -1.2355113
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 47
+    class TransformComponent:
+      translation_x: -1.876297
+      translation_y: 1.25846148
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 48
+    class TransformComponent:
+      translation_x: 0.707032442
+      translation_y: -3.49168372
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 49
+    class TransformComponent:
+      translation_x: 2.36992621
+      translation_y: 0.0384531021
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 50
+    class TransformComponent:
+      translation_x: -2.04817843
+      translation_y: 3.59666729
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 51
+    class TransformComponent:
+      translation_x: -2.09554315
+      translation_y: 3.24094343
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 52
+    class TransformComponent:
+      translation_x: 2.31499171
+      translation_y: -1.57560968
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 53
+    class TransformComponent:
+      translation_x: 0.184310853
+      translation_y: -3.43699455
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 54
+    class TransformComponent:
+      translation_x: 3.49640226
+      translation_y: 1.46549892
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 55
+    class TransformComponent:
+      translation_x: -2.00227857
+      translation_y: 3.01803637
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 56
+    class TransformComponent:
+      translation_x: 3.34529686
+      translation_y: 0.656392097
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 57
+    class TransformComponent:
+      translation_x: -1.69733787
+      translation_y: -2.5768609
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 58
+    class TransformComponent:
+      translation_x: 3.30940676
+      translation_y: -0.197881937
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 59
+    class TransformComponent:
+      translation_x: -1.98372257
+      translation_y: 0.031373024
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 60
+    class TransformComponent:
+      translation_x: 2.62799168
+      translation_y: -0.75527215
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 61
+    class TransformComponent:
+      translation_x: -0.991506577
+      translation_y: 0.549943447
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 62
+    class TransformComponent:
+      translation_x: 2.22978234
+      translation_y: 2.0468154
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 63
+    class TransformComponent:
+      translation_x: 2.54717851
+      translation_y: -0.197637796
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 64
+    class TransformComponent:
+      translation_x: -2.24398518
+      translation_y: -1.0575273
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 65
+    class TransformComponent:
+      translation_x: 3.44930363
+      translation_y: -3.7192297
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 66
+    class TransformComponent:
+      translation_x: 0.907966495
+      translation_y: 1.30387259
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 67
+    class TransformComponent:
+      translation_x: 0.181625068
+      translation_y: -3.16257215
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 68
+    class TransformComponent:
+      translation_x: 3.6355772
+      translation_y: 3.37107468
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 69
+    class TransformComponent:
+      translation_x: 1.16822839
+      translation_y: -1.23209333
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 70
+    class TransformComponent:
+      translation_x: 0.545650423
+      translation_y: -1.00015259
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 71
+    class TransformComponent:
+      translation_x: 3.54769564
+      translation_y: -1.46501064
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 72
+    class TransformComponent:
+      translation_x: 0.420646429
+      translation_y: -1.82488489
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 73
+    class TransformComponent:
+      translation_x: 3.36538935
+      translation_y: -1.61760306
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 74
+    class TransformComponent:
+      translation_x: 2.6853652
+      translation_y: 0.53822422
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 75
+    class TransformComponent:
+      translation_x: -1.66022849
+      translation_y: 2.090518
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 76
+    class TransformComponent:
+      translation_x: 3.487391
+      translation_y: -0.81875062
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 77
+    class TransformComponent:
+      translation_x: 0.779055834
+      translation_y: 3.12131119
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 78
+    class TransformComponent:
+      translation_x: -3.00841284
+      translation_y: 3.95702982
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 79
+    class TransformComponent:
+      translation_x: 1.35255885
+      translation_y: -3.59593487
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 80
+    class TransformComponent:
+      translation_x: 1.02247202
+      translation_y: -2.44746256
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 81
+    class TransformComponent:
+      translation_x: 3.51620054
+      translation_y: 1.01406908
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 82
+    class TransformComponent:
+      translation_x: 2.0327549
+      translation_y: -2.41718817
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 83
+    class TransformComponent:
+      translation_x: 3.50911999
+      translation_y: -3.01339769
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 84
+    class TransformComponent:
+      translation_x: -2.34872484
+      translation_y: 1.94500542
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 85
+    class TransformComponent:
+      translation_x: -0.715619087
+      translation_y: 3.52855015
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 86
+    class TransformComponent:
+      translation_x: -0.939503074
+      translation_y: -1.3094883
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 87
+    class TransformComponent:
+      translation_x: -2.10604143
+      translation_y: 1.86468077
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 88
+    class TransformComponent:
+      translation_x: 3.44881535
+      translation_y: 1.66399097
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 89
+    class TransformComponent:
+      translation_x: 1.57375669
+      translation_y: 1.97772169
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 90
+    class TransformComponent:
+      translation_x: -1.20635653
+      translation_y: -2.844203
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 91
+    class TransformComponent:
+      translation_x: -3.21520615
+      translation_y: -3.51194811
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 92
+    class TransformComponent:
+      translation_x: 3.22175789
+      translation_y: 2.82100916
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 93
+    class TransformComponent:
+      translation_x: -1.54352641
+      translation_y: -3.07516718
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 94
+    class TransformComponent:
+      translation_x: 1.19752645
+      translation_y: -3.88598275
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 95
+    class TransformComponent:
+      translation_x: -2.31796217
+      translation_y: -0.363902807
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 96
+    class TransformComponent:
+      translation_x: 2.78961563
+      translation_y: 1.48918104
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 97
+    class TransformComponent:
+      translation_x: 1.11939907
+      translation_y: -3.40891743
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 98
+    class TransformComponent:
+      translation_x: 0.265612245
+      translation_y: -2.38447213
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 99
+    class TransformComponent:
+      translation_x: 2.34160399
+      translation_y: -1.67717528
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/pacman.png
+  - Entity: 100
+    class TransformComponent:
+      translation_x: 0.265368104
+      translation_y: -2.14056826
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 101
+    class TransformComponent:
+      translation_x: 1.39479637
+      translation_y: 0.260628223
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 102
+    class TransformComponent:
+      translation_x: 1.80130363
+      translation_y: -2.71846676
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 103
+    class TransformComponent:
+      translation_x: 0.804935932
+      translation_y: 3.70433664
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 104
+    class TransformComponent:
+      translation_x: 2.33794188
+      translation_y: 3.3984189
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 105
+    class TransformComponent:
+      translation_x: -1.70856833
+      translation_y: -1.31241798
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 106
+    class TransformComponent:
+      translation_x: -1.80134416
+      translation_y: 3.96142483
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 107
+    class TransformComponent:
+      translation_x: 0.431388915
+      translation_y: 3.98413038
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 108
+    class TransformComponent:
+      translation_x: -2.44809294
+      translation_y: 1.00137329
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 109
+    class TransformComponent:
+      translation_x: -2.472996
+      translation_y: -0.498184204
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 110
+    class TransformComponent:
+      translation_x: 3.77723145
+      translation_y: -3.61253691
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 111
+    class TransformComponent:
+      translation_x: 3.9288106
+      translation_y: -1.67986083
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 112
+    class TransformComponent:
+      translation_x: -1.40973282
+      translation_y: 2.15253162
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 113
+    class TransformComponent:
+      translation_x: 0.057598114
+      translation_y: -2.38422799
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 114
+    class TransformComponent:
+      translation_x: 1.79642081
+      translation_y: 0.833155155
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 115
+    class TransformComponent:
+      translation_x: 0.384756416
+      translation_y: -0.269173145
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 116
+    class TransformComponent:
+      translation_x: 1.55446887
+      translation_y: 1.07779169
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 117
+    class TransformComponent:
+      translation_x: 3.61019754
+      translation_y: 2.63032913
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 118
+    class TransformComponent:
+      translation_x: 1.77005267
+      translation_y: 1.7672658
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 119
+    class TransformComponent:
+      translation_x: 1.29787064
+      translation_y: -0.998931885
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 120
+    class TransformComponent:
+      translation_x: -1.75397921
+      translation_y: 1.90325642
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 121
+    class TransformComponent:
+      translation_x: 1.21290803
+      translation_y: 3.24069929
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 122
+    class TransformComponent:
+      translation_x: -1.28521657
+      translation_y: -2.48847914
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 123
+    class TransformComponent:
+      translation_x: 1.60964704
+      translation_y: 1.58806133
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 124
+    class TransformComponent:
+      translation_x: 1.44875288
+      translation_y: -1.18961143
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 125
+    class TransformComponent:
+      translation_x: 0.727540493
+      translation_y: -3.35691404
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 126
+    class TransformComponent:
+      translation_x: 2.69781685
+      translation_y: 0.896389484
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 127
+    class TransformComponent:
+      translation_x: 1.73489571
+      translation_y: 1.52897739
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 128
+    class TransformComponent:
+      translation_x: 3.20808554
+      translation_y: -2.80709267
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 129
+    class TransformComponent:
+      translation_x: 1.3801477
+      translation_y: 2.94186211
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 130
+    class TransformComponent:
+      translation_x: 3.93681049
+      translation_y: 0.917630672
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 131
+    class TransformComponent:
+      translation_x: 2.59332156
+      translation_y: -3.65428638
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 132
+    class TransformComponent:
+      translation_x: 2.11405635
+      translation_y: 3.81225014
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 133
+    class TransformComponent:
+      translation_x: -0.708050132
+      translation_y: 0.553605556
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 134
+    class TransformComponent:
+      translation_x: -0.781539798
+      translation_y: -2.60860014
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 135
+    class TransformComponent:
+      translation_x: -2.35971141
+      translation_y: 2.95236063
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 136
+    class TransformComponent:
+      translation_x: 3.58163214
+      translation_y: 1.95452738
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 137
+    class TransformComponent:
+      translation_x: -1.98909402
+      translation_y: -1.38468575
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 138
+    class TransformComponent:
+      translation_x: -2.59336114
+      translation_y: -3.38718843
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 139
+    class TransformComponent:
+      translation_x: 1.89969516
+      translation_y: 2.56001472
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 140
+    class TransformComponent:
+      translation_x: 1.13258314
+      translation_y: -0.413953066
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 141
+    class TransformComponent:
+      translation_x: 0.0436813533
+      translation_y: -1.61003447
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 142
+    class TransformComponent:
+      translation_x: 0.496332437
+      translation_y: 0.00964403152
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 143
+    class TransformComponent:
+      translation_x: -2.00691748
+      translation_y: -1.41569257
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 144
+    class TransformComponent:
+      translation_x: 2.67584419
+      translation_y: -1.48893714
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 145
+    class TransformComponent:
+      translation_x: 3.38533688
+      translation_y: 3.67259741
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 146
+    class TransformComponent:
+      translation_x: 3.75863934
+      translation_y: 1.80022573
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 147
+    class TransformComponent:
+      translation_x: -0.827683449
+      translation_y: 3.55198812
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 148
+    class TransformComponent:
+      translation_x: -2.21029282
+      translation_y: -3.47410512
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 149
+    class TransformComponent:
+      translation_x: 3.05158663
+      translation_y: 0.196661472
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 150
+    class TransformComponent:
+      translation_x: 1.64895487
+      translation_y: 3.64891529
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 151
+    class TransformComponent:
+      translation_x: -2.65000343
+      translation_y: 3.00509644
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 152
+    class TransformComponent:
+      translation_x: 2.0027256
+      translation_y: -1.42301702
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 153
+    class TransformComponent:
+      translation_x: -2.38974166
+      translation_y: 0.0404067039
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 154
+    class TransformComponent:
+      translation_x: -1.41144204
+      translation_y: -1.67766356
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 155
+    class TransformComponent:
+      translation_x: 3.86995482
+      translation_y: 0.409314156
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 156
+    class TransformComponent:
+      translation_x: 2.07425976
+      translation_y: -3.08371234
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 157
+    class TransformComponent:
+      translation_x: 0.712159276
+      translation_y: -0.966948509
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 158
+    class TransformComponent:
+      translation_x: 0.746340156
+      translation_y: 2.34687328
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 159
+    class TransformComponent:
+      translation_x: 0.845953107
+      translation_y: -0.941068649
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 160
+    class TransformComponent:
+      translation_x: 2.27714729
+      translation_y: 0.257209778
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 161
+    class TransformComponent:
+      translation_x: 1.62209821
+      translation_y: -0.838526487
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 162
+    class TransformComponent:
+      translation_x: -3.18102551
+      translation_y: 1.66301441
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 163
+    class TransformComponent:
+      translation_x: -2.42318988
+      translation_y: 0.984527111
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 164
+    class TransformComponent:
+      translation_x: 3.6778264
+      translation_y: -0.0679953098
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 165
+    class TransformComponent:
+      translation_x: 2.75055194
+      translation_y: -0.0247809887
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 166
+    class TransformComponent:
+      translation_x: -0.187282473
+      translation_y: 2.28290653
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 167
+    class TransformComponent:
+      translation_x: 1.19435239
+      translation_y: -1.14322329
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 168
+    class TransformComponent:
+      translation_x: 3.58327675
+      translation_y: 1.04678488
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 169
+    class TransformComponent:
+      translation_x: -1.81550431
+      translation_y: -1.0060122
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 170
+    class TransformComponent:
+      translation_x: -2.17513537
+      translation_y: 1.9462266
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 171
+    class TransformComponent:
+      translation_x: 3.61628675
+      translation_y: 0.895901203
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 172
+    class TransformComponent:
+      translation_x: -3.00548315
+      translation_y: -1.36124754
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 173
+    class TransformComponent:
+      translation_x: -2.78086686
+      translation_y: 1.11368132
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 174
+    class TransformComponent:
+      translation_x: -2.17513537
+      translation_y: 2.77657413
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 175
+    class TransformComponent:
+      translation_x: 3.6863718
+      translation_y: 0.775048256
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 176
+    class TransformComponent:
+      translation_x: 2.54498053
+      translation_y: 2.83175135
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 177
+    class TransformComponent:
+      translation_x: -3.11071086
+      translation_y: -2.98825026
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 178
+    class TransformComponent:
+      translation_x: 2.43511391
+      translation_y: 0.937162399
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 179
+    class TransformComponent:
+      translation_x: -1.48761606
+      translation_y: -3.4723959
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 180
+    class TransformComponent:
+      translation_x: -1.87678528
+      translation_y: 0.992828369
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 181
+    class TransformComponent:
+      translation_x: -0.500279188
+      translation_y: -1.44474626
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 182
+    class TransformComponent:
+      translation_x: -0.287627399
+      translation_y: 1.28800297
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 183
+    class TransformComponent:
+      translation_x: 3.19099522
+      translation_y: 2.45503092
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 184
+    class TransformComponent:
+      translation_x: 0.984140754
+      translation_y: 0.888821125
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 185
+    class TransformComponent:
+      translation_x: 3.15730286
+      translation_y: 3.20480967
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 186
+    class TransformComponent:
+      translation_x: -2.06966352
+      translation_y: 1.04141378
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 187
+    class TransformComponent:
+      translation_x: -0.00881039631
+      translation_y: -1.970397
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 188
+    class TransformComponent:
+      translation_x: -2.13582754
+      translation_y: 2.84151745
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 189
+    class TransformComponent:
+      translation_x: -2.69883299
+      translation_y: -0.577532291
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 190
+    class TransformComponent:
+      translation_x: 1.35866284
+      translation_y: -1.5817132
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 191
+    class TransformComponent:
+      translation_x: 1.15626574
+      translation_y: -2.19550157
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 192
+    class TransformComponent:
+      translation_x: -0.737348557
+      translation_y: -3.11496329
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 193
+    class TransformComponent:
+      translation_x: 3.23616266
+      translation_y: -2.92233038
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 194
+    class TransformComponent:
+      translation_x: -0.954151928
+      translation_y: 2.30488014
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 195
+    class TransformComponent:
+      translation_x: 3.93369341
+      translation_y: 2.31708717
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 196
+    class TransformComponent:
+      translation_x: 2.72223091
+      translation_y: 0.921781063
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 197
+    class TransformComponent:
+      translation_x: -0.339142054
+      translation_y: 2.85323668
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 198
+    class TransformComponent:
+      translation_x: -1.40021086
+      translation_y: 2.90865803
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png
+  - Entity: 199
+    class TransformComponent:
+      translation_x: -1.39264274
+      translation_y: -2.00360107
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class SpriteComponent:
+      TextureLocation: images/ghost.png

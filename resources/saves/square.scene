@@ -1,0 +1,19 @@
+Scene Name: Untitled
+Size: 8
+Camera:
+  Zoom: 4
+  Position_x: 0
+  Position_y: 0
+Entities:
+  - Entity: 0
+    class TransformComponent:
+      translation_x: -3.21813607
+      translation_y: 0.508682728
+      rotation: 0
+      scale_x: 0.200000003
+      scale_y: 0.200000003
+    class QuadComponent:
+      colour_r: 1.0
+      colour_g: 0.0
+      colour_b: 0.0
+      colour_a: 1.0

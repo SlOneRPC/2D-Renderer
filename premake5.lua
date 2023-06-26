@@ -13,6 +13,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.architecture}"
 project "Renderer2D"
     platforms { "x64" }
     architecture "x64"
+
     location "src"
     kind "ConsoleApp"
     language "C++"
@@ -59,6 +60,10 @@ project "Renderer2D"
 
     staticruntime "Off"
 
+    postbuildcommands {
+        '{COPY} ../resources/ %{cfg.targetdir}/resources'
+    }
+
     filter "system:windows"
         cppdialect "C++20"
 
@@ -86,7 +91,7 @@ project "Renderer2D"
 
 
     filter "configurations:IntegrationTest"
-        defines { "NDEBUG", "GLEW_STATIC", 'BASE_APP_PATH="../resources/"', "YAML_CPP_DLL", "TESTING"  }
+        defines { "NDEBUG", "GLEW_STATIC", 'BASE_APP_PATH="resources/"', "YAML_CPP_DLL", "TESTING"  }
         optimize "On"
         links { "yaml-cpp.lib" }
         runtime "Release"
@@ -94,6 +99,7 @@ project "Renderer2D"
 project "GoogleTests"
     platforms { "x64" }
     architecture "x64"
+
     location "tests/GoogleTests"
     kind "ConsoleApp"
     language "C++"
@@ -147,7 +153,7 @@ project "GoogleTests"
         "gtest.lib"
     }
 
-    defines { "GLEW_STATIC", "WIN32", "x64", "_CONSOLE" }
+    defines { "GLEW_STATIC", "WIN32", "x64", "_CONSOLE", 'BASE_APP_PATH="../resources/"' }
 
     staticruntime "Off"
     optimize "On"
@@ -161,12 +167,6 @@ project "GoogleTests"
         optimize "Off"
 
 project "ScreenshotTests"
-    configurations
-    {
-        "Debug",
-        "Release"
-    }
-
     configmap {
         ["IntegrationTest"] = "Release",
         ["Release"] = "Release",
@@ -190,6 +190,9 @@ project "ScreenshotTests"
     {
         "tests/ScreenshotTests/*.cs",
     }
+
+    filter "configurations:UnitTest"
+        kind "None"
 
     filter "configurations:Debug"
         defines { "DEBUG" }

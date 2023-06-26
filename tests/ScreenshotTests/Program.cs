@@ -5,9 +5,16 @@ using System.Drawing.Imaging;
 using ScreenshotTests;
 using System.Drawing;
 using Codeuctivity.ImageSharpCompare;
+using System.IO;
 
-string TestDirectory = "../../../../../bin/build/Test/";
+string TestDirectory = "../../../../../bin/build/IntegrationTest/";
 string renderer = TestDirectory + "Renderer2D.exe";
+
+if (!File.Exists(renderer))
+{
+    Console.WriteLine("Application does not exist in -> " + renderer);
+    return;
+}
 
 Test.AssertTrue(new ScreenshotComparison("Default Scene", 
     renderer, 

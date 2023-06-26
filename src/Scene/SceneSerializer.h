@@ -4,7 +4,7 @@
 /* Class for serialising a scene using yaml for cpp. The reason for this being it's human readable */		
 class SceneSerializer {
 public:
-	SceneSerializer(std::string& path) : path(path) {}
+	SceneSerializer(std::string& path) : path(BASE_APP_PATH + std::string("saves/") + path) {}
 	
 	void SerialiseScene(Scene* scene);
 	bool DeserialiseScene(Scene* scene);

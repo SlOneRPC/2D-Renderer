@@ -7,7 +7,7 @@ std::shared_ptr<Entity> PlayerBullet::Create(int id, glm::vec2 pos)
 	auto bullet = std::make_unique<PlayerBullet>(id);
 
 	bullet->AddComponent<TransformComponent>(pos, 0, glm::vec2{ 0.1f, 0.1f * 1.75 });
-	bullet->AddComponent<SpriteComponent>(BASE_APP_PATH + std::string("images/SpaceRaiders/Sprites01.png"));
+	bullet->AddComponent<SpriteComponent>(std::string("images/SpaceRaiders/Sprites01.png"));
 
 	return bullet;
 }
@@ -53,7 +53,7 @@ std::shared_ptr<Entity> EnemyBullet::Create(int id, glm::vec2 pos)
 	auto bullet = std::make_unique<EnemyBullet>(id);
 
 	bullet->AddComponent<TransformComponent>(pos, 180, glm::vec2{ 0.1f, 0.1f * 1.75 });
-	bullet->AddComponent<SpriteComponent>(BASE_APP_PATH + std::string("images/SpaceRaiders/Sprites03.png"));
+	bullet->AddComponent<SpriteComponent>(std::string("images/SpaceRaiders/Sprites03.png"));
 
 	return bullet;
 }
