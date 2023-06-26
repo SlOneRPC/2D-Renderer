@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "imgui.h"
 #include "SceneSerializer.h"
+#include "Core/Logging.h"
 
 Scene::Scene(float size)
 	: size(size), entList(EntityList(glm::vec2(0,0), size)), camera(OrthographicCamera(-4, 4, -4, 4))
@@ -16,14 +17,37 @@ Scene::Scene(const std::string& path)
 	renderer2D = std::make_unique<Renderer2D>();
 }
 
-void Scene::OnUpdate(TimeStep ts)
+void Scene::BeginScene(TimeStep ts)
+{
+	renderer2D->Begin(camera);
+
+	// Update inherited scenes
+	this->OnUpdate(ts);
+
+	// Perform on update for all entities in the scene
+	UpdateEntities(ts);
+
+	// Render entities in the scene
+	OnRender();
+
+	ShowFps(ts);
+
+	renderer2D->End();
+}
+
+
+void Scene::UpdateEntities(TimeStep ts)
 {
 	std::vector<Entity*> ents = entList.GetVisibleEntities(camera);
 
 	// Update entities
-	for (Entity* ent : ents) 
+	for (Entity* ent : ents)
 	{
-		if (entList.GetEntity(ent->id)) 
+#ifdef TESTING
+		if (!updateFrame) break;
+		ts = TimeStep(0.f, 1.f); //timestep should not take any effect
+#endif
+		if (entList.GetEntity(ent->id))
 		{
 			glm::vec2 posBefore = ent->GetComponent<TransformComponent>()->translation;
 
@@ -34,71 +58,68 @@ void Scene::OnUpdate(TimeStep ts)
 					entList.UpdateEntity(ent);
 		}
 	}
+#ifdef TESTING
+	updateFrame = false;
+#endif
+}
 
-	// Draw entities
-	renderer2D->Begin(camera);
-    {
-		ents = entList.GetVisibleEntities(camera);
-		for (Entity* ent : ents)
+void Scene::OnRender()
+{
+	std::vector<Entity*> ents = entList.GetVisibleEntities(camera);
+
+	for (Entity* ent : ents)
+	{
+		TransformComponent* transformComponent = ent->GetComponent<TransformComponent>();
+
+		if (ent->HasComponent<SpriteComponent>())
 		{
-			TransformComponent* transformComponent = ent->GetComponent<TransformComponent>();
-
-			if (ent->HasComponent<SpriteComponent>()) 
-			{
-				SpriteComponent* spriteComponent = ent->GetComponent<SpriteComponent>();
-				renderer2D->DrawTexturedQuad(transformComponent->translation, transformComponent->scale, spriteComponent->texture.get(), transformComponent->rotation);
-			}
-			else
-			{
-				QuadComponent* quadComponent = ent->GetComponent<QuadComponent>();
-				renderer2D->DrawQuad(transformComponent->translation, transformComponent->scale, quadComponent->colour, transformComponent->rotation);
-			}
+			SpriteComponent* spriteComponent = ent->GetComponent<SpriteComponent>();
+			renderer2D->DrawTexturedQuad(transformComponent->translation, transformComponent->scale, spriteComponent->texture.get(), transformComponent->rotation);
 		}
-
-#ifdef DEBUG
-		OnImguiRender();
-
-
-		glm::vec3 camPosition(camera.GetPosition());
-		if (ImGui::DragFloat("Cam x", &camPosition.x)
-			|| ImGui::DragFloat("Cam y", &camPosition.y)) {
-			camera.SetPosition(camPosition);
+		else if (ent->HasComponent<QuadComponent>())
+		{
+			QuadComponent* quadComponent = ent->GetComponent<QuadComponent>();
+			renderer2D->DrawQuad(transformComponent->translation, transformComponent->scale, quadComponent->colour, transformComponent->rotation);
 		}
+	}
 
-		float camZoom = fabsf(camera.GetZoom());
-		if (ImGui::DragFloat("Cam zoom", &camZoom)) {
-			camera.SetProjection(-camZoom, camZoom, -camZoom, camZoom);
-		}
+#if defined(DEBUG) || defined(TESTING)
+	OnImguiRender();
 
-		entList.DrawQuadTree();
+	glm::vec3 camPosition(camera.GetPosition());
+	if (ImGui::DragFloat("Cam x", &camPosition.x)
+		|| ImGui::DragFloat("Cam y", &camPosition.y)) {
+		camera.SetPosition(camPosition);
+	}
 
+	float camZoom = fabsf(camera.GetZoom());
+	if (ImGui::DragFloat("Cam zoom", &camZoom)) {
+		camera.SetProjection(-camZoom, camZoom, -camZoom, camZoom);
+	}
+
+	entList.DrawQuadTree();
 #endif // DEBUG
-    }
-    renderer2D->End();
 }
 
-
-// TEMP
-int baseId = 0;
-
-int Scene::CreateQuadEntity(const glm::vec2& pos, const Colour& colour, const glm::vec2& scale, float rotation)
+void Scene::ShowFps(TimeStep ts)
 {
-	std::shared_ptr<Entity> ent = std::make_shared<Entity>(baseId++);
+	bool open = true;
 
-	ent->AddComponent<TransformComponent>(pos, rotation, scale);
-	ent->AddComponent<QuadComponent>(colour);
+	ImGui::SetNextWindowPos({ 0, 0 });
+	ImGui::SetNextWindowSize({ 500, 500 });
+	ImGui::Begin("test", &open, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoInputs
+		| ImGuiWindowFlags_NoBackground);
 
-	return entList.AddEntity(ent);
-}
+	ImGui::SetWindowFontScale(1.5f);
 
-int Scene::CreateTexturedEntity(const glm::vec2& pos, const std::string& path, float rotation)
-{
-	std::shared_ptr<Entity> ent = std::make_shared<Entity>(baseId++);
+	float frameTime = 1.0f / ts;
+	const float smoothing = std::pow(0.9, ts * 60 / 1000);
+	float lastFrameTime = 1.0f / ts.GetLastFrameDelta();
+	float fps = (lastFrameTime * smoothing) + (frameTime * (1.0 - smoothing));
 
-	ent->AddComponent<TransformComponent>(pos, rotation, glm::vec2{ 1.0f, 1.0f });
-	ent->AddComponent<SpriteComponent>(std::string(BASE_APP_PATH + path));
+	ImGui::Text((std::string("FPS: ") + std::to_string(fps)).c_str());
 
-	return entList.AddEntity(ent);
+	ImGui::End();
 }
 
 int Scene::AddCustomEntity(std::shared_ptr<Entity>& ent)
