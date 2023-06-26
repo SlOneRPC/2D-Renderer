@@ -113,12 +113,12 @@ void Renderer2D::End()
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
-void Renderer2D::DrawQuad(const glm::vec2& transform, const glm::vec2& dimensions, const Colour& colour)
+void Renderer2D::DrawQuad(const glm::vec2& transform, const glm::vec2& dimensions, const Colour& colour, float rotation)
 {
     flatColourShader->Bind();
     flatColourShader->SetUniformVec4("uColour", colour.r, colour.g, colour.b, colour.a);
 
-    DrawQuad(transform, dimensions, flatColourShader);
+    DrawQuad(transform, dimensions, flatColourShader, rotation);
 }
 
 void Renderer2D::DrawOutlineQuad(const glm::vec2& transform, const glm::vec2& dimensions, const Colour& colour, const float& outlineThickness)
@@ -134,18 +134,13 @@ void Renderer2D::DrawOutlineQuad(const glm::vec2& transform, const glm::vec2& di
     DrawQuad(transform + glm::vec2{ half.x, 0.0f }, { outlineThickness, dimensions.y }, flatColourShader);
 }
 
-
-void Renderer2D::DrawRotatedQuad(const glm::vec2& transform, const glm::vec2& dimensions, const float& rotation)
-{
-   // DrawQuad(transform, dimensions);
-}
-
-void Renderer2D::DrawQuad(const glm::vec2& transform, const glm::vec2& dimensions, std::unique_ptr<Shader>& shader)
+void Renderer2D::DrawQuad(const glm::vec2& transform, const glm::vec2& dimensions, std::unique_ptr<Shader>& shader, float rotation)
 {
     quadVertexArray->Bind();
 
-    glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(dimensions.x, dimensions.y, 1.f));
-    glm::mat4 transformed = glm::translate(glm::mat4(1.0f), { transform.x, transform.y, 0.f }) * scale;
+    glm::mat4 transformed = glm::translate(glm::mat4(1.0f), { transform.x, transform.y, 0.f })
+        * glm::rotate(glm::mat4(1.0f), glm::radians(rotation), { 0.f, 0.f, 1.0f })
+        * glm::scale(glm::mat4(1.0f), glm::vec3(dimensions.x, dimensions.y, 1.f));
 
     shader->SetUniformMat4("uTransform", transformed);
     shader->SetUniformMat4("uViewProjection", viewProjection);
@@ -153,11 +148,11 @@ void Renderer2D::DrawQuad(const glm::vec2& transform, const glm::vec2& dimension
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 }
 
-void Renderer2D::DrawTexturedQuad(const glm::vec2& transform, const glm::vec2& dimensions, Texture* texture)
+void Renderer2D::DrawTexturedQuad(const glm::vec2& transform, const glm::vec2& dimensions, Texture* texture, float rotation)
 {
     textureShader->Bind();
     texture->Bind(0);
-    DrawQuad(transform, dimensions, textureShader);
+    DrawQuad(transform, dimensions, textureShader, rotation);
 }
 
 void Renderer2D::DrawTriangle(const glm::vec2& transform, const glm::vec2& dimensions, const Colour& colour)
