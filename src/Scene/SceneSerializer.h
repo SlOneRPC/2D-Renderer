@@ -5,10 +5,15 @@
 class SceneSerializer {
 public:
 	SceneSerializer(std::string& path) : path(path) {}
+	
 	void SerialiseScene(Scene* scene);
+	bool DeserialiseScene(Scene* scene);
 private:
 	template <typename T>
 	void SerialiseComponent(Entity* entity);
+
+	template <typename T>
+	void DeserialiseComponent(Entity* entity, YAML::detail::iterator_value& node);
 
 	void SerialiseEntities(EntityList& entities);
 	void SerialiseCamera(OrthographicCamera& cam);

@@ -2,6 +2,9 @@
 #include <memory>
 #include <vector>
 
+#include <iostream>
+#include <map>
+
 #include "Core/Colour.h"
 #include "Core/TimeStep.h"
 #include "../OpenGL/Texture.h"
@@ -11,11 +14,13 @@
 #define YAML_CPP_API
 #define YAML_CPP_DLL
 #include "yaml-cpp/yaml.h"
+#include <functional>
 
 class Component {
 public:
 	inline Component(const std::string& name) : name("class " + name) { }
 	virtual std::string& GetName() { return name; };
+	
 	virtual void Serialise(YAML::Emitter& node) {};
 private:
 	std::string name;
@@ -34,6 +39,14 @@ public:
 	{
 		rotation = 0;
 		scale = glm::vec2(1.0f, 1.0f);
+	}
+
+	inline TransformComponent(YAML::Node& node)
+		: Component("TransformComponent")
+	{
+		translation = glm::vec2(node["translation_x"].as<float>(), node["translation_y"].as<float>());
+		rotation = node["rotation"].as<float>();
+		scale = glm::vec2(node["scale_x"].as<float>(), node["scale_y"].as<float>());
 	}
 
 	inline void Serialise(YAML::Emitter& node)
@@ -59,6 +72,13 @@ public:
 		: Component("SpriteComponent"), path(path), texture(std::make_shared<Texture>(path))
 		{ }
 
+	inline SpriteComponent(YAML::Node& node)
+		: Component("SpriteComponent")
+	{
+		path = node["TextureLocation"].as<std::string>();
+		texture = std::make_shared<Texture>(path);
+	}
+
 	inline void Serialise(YAML::Emitter& node)
 	{
 		node << YAML::Key << "TextureLocation" << YAML::Value << path;
@@ -74,6 +94,17 @@ public:
 	inline QuadComponent(const Colour& colour)
 		: Component("QuadComponent"), colour(colour)
 		{ }
+
+	inline QuadComponent(YAML::Node& node)
+		: Component("QuadComponent")
+	{
+		colour = {
+			node["colour_r"].as<float>(),
+			node["colour_g"].as<float>(),
+			node["colour_b"].as<float>(),
+			node["colour_a"].as<float>()
+		};
+	}
 
 	inline void Serialise(YAML::Emitter& node)
 	{
@@ -91,6 +122,8 @@ public:
 	Entity(int id) : id(id) {};
 
 	int id;
+
+	inline static std::shared_ptr<Entity> Create(int id) { return std::make_shared<Entity>(id); }
 
 	virtual void OnCreate() {};
 	virtual void OnUpdate(TimeStep ts) {};
@@ -126,3 +159,15 @@ public:
 private:
 	std::vector<std::shared_ptr<Component>> components;
 };
+
+
+typedef std::shared_ptr<Entity> (*FactoryType)(int id);
+inline std::map<std::string, FactoryType> entityTypeMap;
+
+template <typename T>
+inline void RegisterEntity() 
+{
+	auto name = typeid(T).name();
+	
+	entityTypeMap[std::string(name)] = T::Create;
+}
