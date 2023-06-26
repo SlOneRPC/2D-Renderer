@@ -54,6 +54,9 @@
     <ClCompile Include="Demos\ChessBoardDemo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imgui\imgui.h">
@@ -89,9 +92,16 @@
     <ClInclude Include="Demos\ChessBoardDemo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\vertex.shader" />
     <None Include="shaders\fragment.shader" />
+    <None Include="shaders\textureFragment.shader" />
   </ItemGroup>
 </Project>

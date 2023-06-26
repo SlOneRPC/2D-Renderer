@@ -28,6 +28,12 @@ void Shader::Unbind()
 	glUseProgram(0);
 }
 
+void Shader::SetUniform1i(const char* name, float value)
+{
+	int location = glGetUniformLocation(programId, name);
+	glUniform1i(location, value);
+}
+
 void Shader::SetUniformVec4(const char* name, float r, float g, float b, float a)
 {
 	int location = glGetUniformLocation(programId, name);
