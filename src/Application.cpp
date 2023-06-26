@@ -2,65 +2,48 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 #include <iomanip>
+#include <vector>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#include <vector>
+#include "OpenGL/Window.h"
+#include "Renderer/Renderer2D.h"
 
 int main(void)
 {
-    GLFWwindow* window;
-
     /* Initialize the library */
     if (!glfwInit())
-        return -1;
-
-
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(1280, 1080, "OpenGL Demo", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        return -1;
-    }
-
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
-    glfwSwapInterval(1); // Enable vsync
-
-    if (glewInit() != GLEW_OK)
         return -1;
 
     /* Imgui Setup */
     ImGui::CreateContext();
     ImGui::StyleColorsDark();
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
+
+    std::unique_ptr<Window> window = std::make_unique<Window>(1280, 1080, "Renderer2D", true);
+    
     ImGui_ImplOpenGL3_Init("#version 130");
-    bool show_demo_window = true;
 
-  
+    if (glewInit() != GLEW_OK)
+        return -1;
+
+    std::unique_ptr<Renderer2D> renderer2D = std::make_unique<Renderer2D>();
+
     /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
+    while (window->IsOpen())
     {
-        /* Poll for and process events */
-        glfwPollEvents();
-        /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
+        renderer2D->Begin();
+        {
+            renderer2D->DrawQuad({ -0.5f, -0.5f }, { 1.0f, 1.0f }, { 1.0, 0.f, 0.f, 1.0f });
 
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
+            renderer2D->DrawTriangle({ -0.2f, -0.4f }, { 0.5f, 0.5f }, { 0.0, 1.f, 0.f, 1.0f });
 
-       // ImGui::ShowDemoWindow(&show_demo_window);
-        ImGui::Render();
+            renderer2D->DrawTexturedQuad({ -1.0f, -1.0f }, { 0.5f, 0.5f }, APP_RESOURCE("images/checkerboard.jpg"));
+        }
+        renderer2D->End();
 
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-        /* Swap front and back buffers */
-        glfwSwapBuffers(window);
+        window->SwapBuffers();
     }
 
-    glfwTerminate();
     return 0;
 }

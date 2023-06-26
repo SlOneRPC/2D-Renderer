@@ -6,11 +6,12 @@
 Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath)
 	: programId(glCreateProgram())
 {
-	SetupShader(vertexPath, GL_VERTEX_SHADER);
-	SetupShader(fragmentPath, GL_FRAGMENT_SHADER);
-	
-	glLinkProgram(programId);
-	glValidateProgram(programId);
+	if (SetupShader(vertexPath, GL_VERTEX_SHADER) &&
+		SetupShader(fragmentPath, GL_FRAGMENT_SHADER))
+	{
+		glLinkProgram(programId);
+		glValidateProgram(programId);
+	}
 }
 
 Shader::~Shader()
@@ -40,7 +41,7 @@ void Shader::SetUniformVec4(const char* name, float r, float g, float b, float a
 	glUniform4f(location, r, g, b, a);
 }
 
-void Shader::SetupShader(const std::string& path, unsigned int type)
+bool Shader::SetupShader(const std::string& path, unsigned int type)
 {
 	std::ifstream file(path, std::ios::in | std::ios::binary);
 
@@ -59,13 +60,13 @@ void Shader::SetupShader(const std::string& path, unsigned int type)
 		else
 		{
 			_ASSERT(false);
-			return;
+			return false;
 		}
 	}
 	else	
 	{
 		_ASSERT(false);
-		return;
+		return false;
 	}
 
 
@@ -86,8 +87,9 @@ void Shader::SetupShader(const std::string& path, unsigned int type)
 		std::cout << message << std::endl;
 		glDeleteShader(shader);
 		_ASSERT(false);
-		return;
+		return false;
 	}
 
 	glAttachShader(programId, shader);
+	return true;
 }
