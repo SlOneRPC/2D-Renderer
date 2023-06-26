@@ -106,6 +106,5 @@
     <ClCompile Include="Demos\SandboxScene.cpp" />
     <ClCompile Include="Demos\MovingEntity.cpp" />
     <ClCompile Include="Scene\SceneSerializer.cpp" />
-    <ClCompile Include="Core\TimeStep.cpp" />
   </ItemGroup>
 </Project>
