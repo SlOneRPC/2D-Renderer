@@ -1,6 +1,40 @@
 # 2D Renderer
 2D Renderer using OpenGL
+
+## Prerequisites
+- CMake (https://cmake.org/download/)
+- Visual studio 2022 or later
+- C++ 20 or later & .NET 6.0
+
 ## Setup
-- `git clone https://gitlab2.eeecs.qub.ac.uk/40265990/opengl-demo.git --recursive`
+Run the following commands:
+- `git -c http.sslVerify=false clone https://gitlab2.eeecs.qub.ac.uk/40265990/opengl-demo.git --recursive Renderer2D`
 - `cd Renderer2D`
-- `"./vendor/premake/premake5.exe" vs2022` or run the GenerateVS22.bat
+- `build-deps.bat`
+- `GenerateVS22.bat`
+
+## Overview
+
+### Renderer2D
+- OpenGL based renderer
+- Supports custom scenes and entities
+- Saving and loading from disk using yaml
+- A space invaders themed demo called space raiders, and a few other demos avaliable.
+
+### Screenshot testing
+- Screenshot comparision testing
+- Run in "IntegrationTest" mode! This will compile the renderer correctly for testing.
+
+### Google testing
+- Google unit testing
+- Covers various aspects of the system
+- Run in "UnitTest" mode! This will compile the renderer as a static library to be used for testing.
+
+## External Libraries/Tools
+- glew (https://glew.sourceforge.net/)
+- glfw (https://www.glfw.org/)
+- glm (https://github.com/g-truc/glm)
+- premake (https://premake.github.io/)
+- stb (https://github.com/nothings/stb)
+- yaml-cpp (https://github.com/jbeder/yaml-cpp)
+- imgui (https://github.com/ocornut/imgui)
