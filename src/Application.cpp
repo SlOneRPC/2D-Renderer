@@ -8,6 +8,7 @@
 #include <GLFW/glfw3.h>
 
 #include "OpenGL/Window.h"
+#include "OpenGL/Texture.h"
 #include "Renderer/Renderer2D.h"
 
 int main(void)
@@ -29,16 +30,18 @@ int main(void)
 
     std::unique_ptr<Renderer2D> renderer2D = std::make_unique<Renderer2D>();
 
+    std::unique_ptr<Texture> checkerboardTexture = std::make_unique<Texture>(APP_RESOURCE("images/checkerboard.jpg"));
+
     /* Loop until the user closes the window */
     while (window->IsOpen())
     {
         renderer2D->Begin();
         {
-            renderer2D->DrawQuad({ -0.5f, -0.5f }, { 1.0f, 1.0f }, { 1.0, 0.f, 0.f, 1.0f });
+            renderer2D->DrawTexturedQuad({ -0.5f, -0.5f }, { 1.0f, 1.0f }, checkerboardTexture.get());
+
+            //renderer2D->DrawQuad({ -0.5f, -0.5f }, { 1.0f, 1.0f }, { 1.0, 0.f, 0.f, 1.0f });
 
             renderer2D->DrawTriangle({ -0.2f, -0.4f }, { 0.5f, 0.5f }, { 0.0, 1.f, 0.f, 1.0f });
-
-            renderer2D->DrawTexturedQuad({ -1.0f, -1.0f }, { 0.5f, 0.5f }, APP_RESOURCE("images/checkerboard.jpg"));
         }
         renderer2D->End();
 

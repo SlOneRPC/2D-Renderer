@@ -35,6 +35,8 @@ project "Renderer2D"
         "$(SolutionDir)vendor/imgui",
         "$(SolutionDir)vendor/imgui/backends",
         "$(SolutionDir)vendor/stb-image",
+	   "$(SolutionDir)vendor/glm",
+	   "$(SolutionDir)src/",
     }
 
     libdirs { "vendor/glfw-3.3.8/lib-vc2019", "vendor/glew-2.1.0/lib/Release/x64" }

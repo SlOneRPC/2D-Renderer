@@ -1,16 +1,89 @@
 #include "Renderer2D.h"
 
 #include <OpenGL/CommonRender.h>
-#include <OpenGL/VertexBuffer.h>
-#include <OpenGL/IndexBuffer.h>
 #include <OpenGL/Shader.h>
 #include <OpenGL/Texture.h>
+#include <OpenGL/VertexArray.h>
+
+#include <glm/gtc/matrix_transform.hpp>
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-#include <memory>
+static bool initialSetup = true;
+
+struct VertexData 
+{
+    glm::vec2 position;
+    glm::vec2 textureCoords;
+};
+
+static std::unique_ptr<Shader> flatColourShader;
+static std::unique_ptr<Shader> textureShader;
+
+static std::unique_ptr<VertexArray> quadVertexArray;
+static std::unique_ptr<VertexArray> triangleVertexArray;
+
+
+Renderer2D::Renderer2D()
+{
+    if (initialSetup) 
+    {
+        // Create shaders
+        flatColourShader = std::make_unique<Shader>(APP_RESOURCE("shaders/vertex.shader"), APP_RESOURCE("shaders/fragment.shader"));
+        textureShader = std::make_unique<Shader>(APP_RESOURCE("shaders/vertex.shader"), APP_RESOURCE("shaders/textureFragment.shader"));
+    
+        unsigned int quadIndices[] = {
+                       0, 1, 2,
+                       2, 3, 0
+        };
+
+        std::shared_ptr<IndexBuffer> quadIndex = std::make_shared<IndexBuffer>(quadIndices, _countof(quadIndices));
+
+        // Create Basic quad
+        glm::vec2 quadBase[4];
+        quadBase[0] = { -0.5f , -0.5f };
+        quadBase[1] = { 0.5f, -0.5f };
+        quadBase[2] = { 0.5f, 0.5f };
+        quadBase[3] = { -0.5f, 0.5f };
+
+        constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
+       
+        VertexData quadVertexBuffer[4];
+        for (int i = 0; i < 4; i++)
+        {
+            quadVertexBuffer[i].position = quadBase[i];
+            quadVertexBuffer[i].textureCoords = textureCoords[i];
+        }
+
+        VertexData triangleVertexBuffer[3];
+        for (int i = 0; i < 3; i++)
+        {
+            quadVertexBuffer[i].position = quadBase[i];
+            quadVertexBuffer[i].textureCoords = textureCoords[i];
+        }
+
+        std::shared_ptr<VertexBuffer> vertex =
+            std::make_shared<VertexBuffer>(quadVertexBuffer, sizeof(quadVertexBuffer));
+
+        VertexLayout layoutQuad;
+        layoutQuad.AddAttrib(std::make_shared<VertexLayoutAtrrib>(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, nullptr));
+        layoutQuad.AddAttrib(std::make_shared<VertexLayoutAtrrib>(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, (void*)(sizeof(float) * 2)));
+
+        vertex->SetLayout(layoutQuad);
+
+        std::shared_ptr<VertexBuffer> vertexTriangle =
+            std::make_shared<VertexBuffer>(triangleVertexBuffer, sizeof(triangleVertexBuffer));
+
+        vertexTriangle->SetLayout(layoutQuad);
+
+        quadVertexArray = std::make_unique<VertexArray>(vertex, quadIndex);
+        triangleVertexArray = std::make_unique<VertexArray>(vertexTriangle, quadIndex);
+
+        initialSetup = true;
+    }
+}
 
 void Renderer2D::Begin()
 {
@@ -18,7 +91,6 @@ void Renderer2D::Begin()
     glfwPollEvents();
     /* Render here */
     glClear(GL_COLOR_BUFFER_BIT);
-
 
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
@@ -31,120 +103,44 @@ void Renderer2D::End()
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
-void Renderer2D::DrawQuad(const Vector2& position, const Vector2& dimensions)
+void Renderer2D::DrawQuad(const glm::vec2& transform, const glm::vec2& dimensions, const Colour& colour)
 {
-    const float xOffset = position.x + dimensions.x;
-    const float yOffset = position.y + dimensions.y;
+    flatColourShader->Bind();
+    flatColourShader->SetUniformVec4("uColour", colour.r, colour.g, colour.b, colour.a);
 
-    float vertexBuffer[] = {
-        position.x, position.y, // 0
-        xOffset, position.y,  // 1
-        xOffset, yOffset,   // 2
-        position.x, yOffset   // 3
-    };
-
-    unsigned int indices[] = {
-        0, 1, 2,
-        2, 3, 0
-    };
-
-    std::unique_ptr<VertexBuffer> vertex = std::make_unique<VertexBuffer>(vertexBuffer, sizeof(vertexBuffer));
-    std::unique_ptr<IndexBuffer> index = std::make_unique<IndexBuffer>(indices, _countof(indices));
+    DrawQuad(transform, dimensions, flatColourShader);
 }
 
-void Renderer2D::DrawQuad(const Vector2& position, const Vector2& dimensions, const Colour& colour)
+void Renderer2D::DrawRotatedQuad(const glm::vec2& transform, const glm::vec2& dimensions, const float& rotation)
 {
-    const float xOffset = position.x + dimensions.x;
-    const float yOffset = position.y + dimensions.y;
+   // DrawQuad(transform, dimensions);
+}
 
-    float vertexBuffer[] = {
-        position.x, position.y, // 0
-        xOffset, position.y,  // 1
-        xOffset, yOffset,   // 2
-        position.x, yOffset   // 3
-    };
+void Renderer2D::DrawQuad(const glm::vec2& transform, const glm::vec2& dimensions, std::unique_ptr<Shader>& shader)
+{
+    quadVertexArray->Bind();
 
-    unsigned int indices[] = {
-        0, 1, 2,
-        2, 3, 0
-    };
+    glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(dimensions.x, dimensions.y, 1.f));
+    glm::mat4 transformed = glm::translate(glm::mat4(1.0f), { transform.x, transform.y, 0.f }) * scale;
 
-    std::unique_ptr<VertexBuffer> vertex = std::make_unique<VertexBuffer>(vertexBuffer, sizeof(vertexBuffer));
-    std::unique_ptr<IndexBuffer> index = std::make_unique<IndexBuffer>(indices, _countof(indices));
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
-
-    std::unique_ptr<Shader> shader = std::make_unique<Shader>(APP_RESOURCE("shaders/vertex.shader"), APP_RESOURCE("shaders/fragment.shader"));
-    shader->Bind();
-    shader->SetUniformVec4("uColour", colour.r, colour.g, colour.b, colour.a);
+    shader->SetUniformVec4("uTransform", transformed);
 
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 }
 
-void Renderer2D::DrawRotatedQuad(const Vector2& position, const Vector2& dimensions, const float& rotation)
+void Renderer2D::DrawTexturedQuad(const glm::vec2& transform, const glm::vec2& dimensions, Texture* texture)
 {
-    DrawQuad(position, dimensions);
-}
-
-void Renderer2D::DrawTexturedQuad(const Vector2& position, const Vector2& dimensions, const char* texturePath)
-{
-    const float xOffset = position.x + dimensions.x;
-    const float yOffset = position.y + dimensions.y;
-
-    float vertexBuffer[] = {
-        position.x, position.y, 0.0f, 0.0f, // 0
-        xOffset, position.y,  1.0f, 0.0f,   // 1
-        xOffset, yOffset, 1.0f, 1.0f,       // 2
-        position.x, yOffset, 0.0f, 1.0f     // 3
-    };
-
-    unsigned int indices[] = {
-        0, 1, 2,
-        2, 3, 0
-    };
-
-    std::unique_ptr<VertexBuffer> vertex = std::make_unique<VertexBuffer>(vertexBuffer, sizeof(vertexBuffer));
-    std::unique_ptr<IndexBuffer> index = std::make_unique<IndexBuffer>(indices, _countof(indices));
-    std::unique_ptr<Shader> shader = std::make_unique<Shader>(APP_RESOURCE("shaders/vertex.shader"), APP_RESOURCE("shaders/textureFragment.shader"));
-    std::unique_ptr<Texture> texture = std::make_unique<Texture>(texturePath);
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, 0);
-
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 4, (void*)(sizeof(float) * 2));
-
-    shader->Bind();
+    textureShader->Bind();
     texture->Bind(0);
-
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+    DrawQuad(transform, dimensions, textureShader);
 }
 
-void Renderer2D::DrawTriangle(const Vector2& position, const Vector2& dimensions, const Colour& colour)
+void Renderer2D::DrawTriangle(const glm::vec2& transform, const glm::vec2& dimensions, const Colour& colour)
 {
-    const float xOffset = position.x + dimensions.x;
-    const float yOffset = position.y + dimensions.y;
+    triangleVertexArray->Bind();
 
-    float vertexBuffer[] = {
-        position.x, position.y, // 0
-        xOffset, position.y,  // 1
-        xOffset, yOffset   // 2
-    };
-
-    unsigned int indices[] = {
-        0, 1, 2
-    };
-
-    std::unique_ptr<VertexBuffer> vertex = std::make_unique<VertexBuffer>(vertexBuffer, sizeof(vertexBuffer));
-    std::unique_ptr<IndexBuffer> index = std::make_unique<IndexBuffer>(indices, _countof(indices));
-    std::unique_ptr<Shader> shader = std::make_unique<Shader>(APP_RESOURCE("shaders/vertex.shader"), APP_RESOURCE("shaders/fragment.shader"));
-
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
-
-    shader->Bind();
-    shader->SetUniformVec4("uColour", colour.r, colour.g, colour.b, colour.a);
+    flatColourShader->Bind();
+    flatColourShader->SetUniformVec4("uColour", colour.r, colour.g, colour.b, colour.a);
 
     glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
 }
